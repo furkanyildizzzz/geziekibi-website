@@ -17,8 +17,8 @@ const merienda_init = Merienda({
 });
 
 export const metadata: Metadata = {
-  title: "Travila - Multipurpose Travel Booking Next.js Template",
-  description: "Multipurpose Travel Booking Next.js Template",
+  title: "Geziekibi",
+  description: "Keyfinizin kahyasıyız",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="tr"
       className={`${manrope_init.variable} ${merienda_init.variable}`}
     >
       <body>{children}</body>
