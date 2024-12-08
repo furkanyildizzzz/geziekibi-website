@@ -11,18 +11,26 @@ import { getFeaturedTours } from "./api/homepage/getFeaturedTours";
 import {
   CategoryListSuccessResponse,
   FeaturedTourListSuccessResponse,
+  HomepageBlogListSuccessResponse,
+  TourDailyPath,
 } from "@/types/ApiResponseType";
 import { getCategories } from "./api/homepage/getCategories";
 import { getTopTours } from "./api/homepage/getTopTours";
+import { getBlogs } from "./api/homepage/getBlogs";
+import { getDestinations } from "./api/homepage/getDestinations";
 
 const Home = async () => {
   const featuredToursRequest = getFeaturedTours();
   const categoriesRequest = getCategories();
   const topToursRequest = getTopTours();
+  const blogsRequest = getBlogs();
+  const destinationsRequest = getDestinations();
 
   const featuredToursResponse = await featuredToursRequest;
   const categoriesResponse = await categoriesRequest;
   const topToursResponse = await topToursRequest;
+  const blogResponse = await blogsRequest;
+  const destinationsResponse = await destinationsRequest;
 
   let featuredTours: FeaturedTourListSuccessResponse[] = [];
   if ("data" in featuredToursResponse) {
@@ -38,17 +46,27 @@ const Home = async () => {
   if ("data" in topToursResponse) {
     topTours = topToursResponse.data;
   }
+
+  let blogs: HomepageBlogListSuccessResponse[] = [];
+  if ("data" in blogResponse) {
+    blogs = blogResponse.data;
+  }
+
+  let destinations: TourDailyPath[] = [];
+  if ("data" in destinationsResponse) {
+    destinations = destinationsResponse.data;
+  }
   return (
     <>
       <Layout headerStyle={1} footerStyle={5}>
-        <BannerHome1 />
+        <BannerHome1 destinations={destinations} />
         <OurFeatured1 tours={featuredTours} />
         <TopCategory1 categories={categories} />
         <Banner />
         <TopRated2 tours={topTours} />
         <WhyTravelUs />
         <Testimonials2 />
-        <News2 />
+        <News2 blogs={blogs} />
       </Layout>
     </>
   );

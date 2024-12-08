@@ -1,7 +1,12 @@
 import Link from "next/link";
-import SwiperGroup3Slider from "../slider/SwiperGroup3Slider";
+import { HomepageBlogListSuccessResponse } from "@/types/ApiResponseType";
+import HomepageBlogSlider from "../slider/HomepageBlogSlider";
 
-export default function News2() {
+interface News2Props {
+  blogs: HomepageBlogListSuccessResponse[];
+}
+
+const News2: React.FC<News2Props> = ({ blogs }) => {
   return (
     <>
       <section className="section-box box-news background-body">
@@ -39,7 +44,7 @@ export default function News2() {
           <div className="box-list-news wow fadeInUp">
             <div className="box-swiper mt-30">
               <div className="swiper-container swiper-group-3">
-                <SwiperGroup3Slider />
+                <HomepageBlogSlider blogs={blogs} />
               </div>
             </div>
           </div>
@@ -47,4 +52,6 @@ export default function News2() {
       </section>
     </>
   );
-}
+};
+
+export default News2;

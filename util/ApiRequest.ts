@@ -22,12 +22,15 @@ export async function apiRequest<T>(
     };
     // Prepare body
     const requestBody = isFormData ? body : JSON.stringify(body);
-    const response = await fetch(`${process.env.BACKEND_URL}/website/${url}`, {
-      method,
-      headers,
-      body: requestBody,
-      cache: "no-store",
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/website/${url}`,
+      {
+        method,
+        headers,
+        body: requestBody,
+        cache: "no-store",
+      }
+    );
 
     const result = await processApiResponse<T>(response);
 

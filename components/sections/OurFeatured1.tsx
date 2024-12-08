@@ -1,13 +1,49 @@
+"use client";
+
 import Link from "next/link";
 import CategoryFilter from "../elements/CategoryFilter";
 import { FeaturedTourListSuccessResponse } from "@/types/ApiResponseType";
 import imageFunctions from "@/util/imageFunctions";
+import { useAppDispatch } from "@/redux/Hooks";
+import { setNavigationData } from "@/redux/Reducers/NavigationDataSlice";
 
 interface OurFeatured1Props {
   tours: FeaturedTourListSuccessResponse[];
 }
 
 const OurFeatured1: React.FC<OurFeatured1Props> = ({ tours }) => {
+  const dispatch = useAppDispatch();
+
+  const handleSetNavigationData = (
+    title: string,
+    seoLink: string,
+    slugType: string
+  ) => {
+    console.log({ seoLink });
+    dispatch(
+      setNavigationData({
+        name: "title",
+        value: title,
+      })
+    );
+    dispatch(
+      setNavigationData({
+        name: "seoLink",
+        value: seoLink,
+      })
+    );
+    dispatch(
+      setNavigationData({
+        name: "slugType",
+        value: slugType,
+      })
+    );
+
+    sessionStorage.setItem("title", title);
+    sessionStorage.setItem("slugType", slugType);
+    sessionStorage.setItem("seoLink", seoLink);
+  };
+
   return (
     <>
       <section className="section-box box-our-featured background-body">
@@ -53,7 +89,10 @@ const OurFeatured1: React.FC<OurFeatured1Props> = ({ tours }) => {
                         {" "}
                         <Link
                           className="heading-6 neutral-1000"
-                          href="/tour-detail-2"
+                          href={"tur/" + t.seoLink}
+                          onClick={() =>
+                            handleSetNavigationData(t.title, t.seoLink, "tour")
+                          }
                         >
                           {t.title}
                         </Link>

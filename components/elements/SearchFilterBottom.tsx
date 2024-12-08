@@ -2,7 +2,17 @@
 import Link from "next/link";
 import Dropdown from "react-bootstrap/Dropdown";
 import MyDatePicker from "./MyDatePicker";
-export default function SearchFilterBottom({ miniField }: any) {
+import { TourDailyPath } from "@/types/ApiResponseType";
+
+interface SearchFilterBottomProps {
+  destinations: TourDailyPath[];
+  miniField: any;
+}
+
+const SearchFilterBottom: React.FC<SearchFilterBottomProps> = ({
+  miniField,
+  destinations,
+}) => {
   return (
     <>
       <div className="box-bottom-search background-card">
@@ -16,15 +26,18 @@ export default function SearchFilterBottom({ miniField }: any) {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                New York, USA
+                Adana
               </Dropdown.Toggle>
               <Dropdown.Menu as="ul" className="dropdown-menu">
-                <li>
-                  <Link className="dropdown-item" href="#">
-                    Sydney, Australia
-                  </Link>
-                </li>
-                <li>
+                {destinations.map((d) => (
+                  <li key={d.id}>
+                    <Link className="dropdown-item" href="#">
+                      {d.name}
+                    </Link>
+                  </li>
+                ))}
+
+                {/* <li>
                   <Link className="dropdown-item" href="#">
                     London, England
                   </Link>
@@ -33,7 +46,7 @@ export default function SearchFilterBottom({ miniField }: any) {
                   <Link className="dropdown-item" href="#">
                     New York City, USA
                   </Link>
-                </li>
+                </li> */}
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -73,4 +86,6 @@ export default function SearchFilterBottom({ miniField }: any) {
       </div>
     </>
   );
-}
+};
+
+export default SearchFilterBottom;

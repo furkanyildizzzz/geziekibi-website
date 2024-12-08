@@ -188,9 +188,11 @@ const TopRated2: React.FC<TopRated2Props> = ({ tours }) => {
                           </div>
                           <div className="endtime">
                             <div className="card-price">
-                              <h6 className="heading-6 neutral-1000">$48.25</h6>
+                              <h6 className="heading-6 neutral-1000">
+                                {t.pricePerPerson} ₺
+                              </h6>
                               <p className="text-md-medium neutral-500">
-                                / person
+                                / kişi
                               </p>
                             </div>
                             <div className="card-button">

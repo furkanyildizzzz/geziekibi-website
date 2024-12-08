@@ -1,8 +1,10 @@
 import {
+  CurrencyEnum,
   LanguageEnum,
   PageTypeEnum,
   PublishStatusEnum,
   TourServiceTypeEnum,
+  TourTypeEnum,
 } from "../lib/enums";
 
 export type ApiResponse<T = any> = ApiErrorResponse | ApiSuccessResponse<T>;
@@ -60,7 +62,7 @@ export type LoginSuccessResponse = {
   user: UserSuccessResponse;
 };
 export type SignupSuccessResponse = string;
-export type TagSuccessResponse = { id: number; name: string };
+export type TagSuccessResponse = { id: number; name: string; seoLink: string };
 export type TourPathSuccessResponse = { id: number; name: string };
 export type TourCategorySuccessResponse = {
   id: number;
@@ -124,14 +126,16 @@ export type TourDailyForm = {
   dailyPaths: TourDailyPath[];
   dailyVisitingPlaces: DailyVisitingPlace[];
 };
+
 export type TourSuccessResponse = {
   id: number;
   title: string;
   spot: string;
   body: string;
-  tourType: string;
-  primaryImages: CloudinaryImage[];
-  galleryImages: CloudinaryImage[];
+  tourType: TourTypeEnum;
+  daysAndNights: string;
+  uploadedPrimaryImages: CloudinaryImage[];
+  uploadedGalleryImages: CloudinaryImage[];
   publishStatus: string;
   publishDate: Date;
   category: TourCategorySuccessResponse;
@@ -139,6 +143,8 @@ export type TourSuccessResponse = {
   tags: TagSuccessResponse[];
   tourServices: TourService[];
   dailyForms: TourDailyForm[];
+  dates: TourDateSuccessResponse[];
+  slugType: "tour";
 };
 
 export type TourListSuccessResponse = {
@@ -157,12 +163,13 @@ export type TourPriceSuccessResponse = {
   name: string;
   description: string;
   price: number;
-  currency: string;
+  currency: CurrencyEnum;
   rowId: number;
 };
 export type TourDateSuccessResponse = {
   id: number;
-  tourDate: Date;
+  startDate: Date;
+  endDate: Date;
   description: string;
   isActive: boolean;
   prices: TourPriceSuccessResponse[];
@@ -186,6 +193,7 @@ export type BlogSuccessResponse = {
   category: BlogCategorySuccessResponse;
   tags: TagSuccessResponse[];
   uploadedPrimaryImages: CloudinaryImage[];
+  slugType: "blog";
 };
 
 export type BlogListSuccessResponse = {
@@ -215,6 +223,7 @@ export type StaticPageListSuccessResponse = {
 export type FeaturedTourListSuccessResponse = {
   id: number;
   title: string;
+  seoLink: string;
   tourType: string;
   startDate: Date;
   endDate: Date;
@@ -226,8 +235,20 @@ export type FeaturedTourListSuccessResponse = {
 export type CategoryListSuccessResponse = {
   id: number;
   name: string;
+  seoLink: string;
   description: string;
   parent: CategoryListSuccessResponse;
   subCategories: CategoryListSuccessResponse[];
   uploadedPrimaryImages: CloudinaryImage[];
+};
+
+export type HomepageBlogListSuccessResponse = {
+  id: number;
+  title: string;
+  seoLink: string;
+  publishDate: Date;
+  uploadedPrimaryImages: CloudinaryImage[];
+  comments: number;
+  tags: TagSuccessResponse[];
+  category: BlogCategorySuccessResponse;
 };

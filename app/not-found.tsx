@@ -19,14 +19,14 @@ export default function Error404() {
                 />
                 <h1 className="neutral-1000">
                   {" "}
-                  <span>We </span>Can’t Find <span>This Page</span>
+                  <span>Aradığınız sayfayı </span> bulamıyoruz
                 </h1>
                 <p className="text-xl-medium neutral-500">
-                  The page you are looking for doesn’t exist or has been moved.
+                  Aradığınız sayfa bulunmuyor ya da kaldırıldı
                 </p>
                 <div className="d-flex align-items-center justify-content-center mt-45">
                   <Link className="btn btn-black-lg-square" href="#">
-                    <svg
+                    {/* <svg
                       className="first"
                       width={16}
                       height={16}
@@ -41,11 +41,11 @@ export default function Error404() {
                         strokeLinejoin="round"
                         fill="none"
                       />
-                    </svg>
-                    Go Back
+                    </svg> */}
+                    Ana Sayfa
                   </Link>
                   <Link className="btn btn-link" href="#">
-                    Help Center
+                    Yardım
                   </Link>
                 </div>
               </div>

@@ -18,23 +18,21 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
               <Link className="d-flex" href="/">
                 <img
                   className="light-mode"
-                  alt="Travila"
-                  src="/assets/imgs/template/logo.svg"
+                  alt="Gezielibi"
+                  src="/assets/imgs/logo-80.png"
                 />
                 <img
                   className="dark-mode"
-                  alt="Travila"
-                  src="/assets/imgs/template/logo-w.svg"
+                  alt="Gezielibi"
+                  src="/assets/imgs/logo-80.png"
                 />
               </Link>
             </div>
             <div className="sidebar-canvas-lang">
-              <LanguageDropdown />
-              <CurrencyDropdown />
               <a className="close-canvas" onClick={handleSidebar}>
                 {" "}
                 <img
-                  alt="Travila"
+                  alt="Gezielibi"
                   src="/assets/imgs/template/icons/close.png"
                 />
               </a>
@@ -47,7 +45,7 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                   {" "}
                   <img
                     src="/assets/imgs/page/homepage1/author2.png"
-                    alt="Travila"
+                    alt="Gezielibi"
                   />
                 </div>
                 <div className="card-info">
@@ -56,26 +54,24 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                 </div>
               </div>
               <Link className="btn btn-black" href="#">
-                Logout
+                Çıkış Yap
               </Link>
             </div>
             <div className="box-quicklinks">
-              <h6 className="title-quicklinks neutral-1000">Quick Links</h6>
+              <h6 className="title-quicklinks neutral-1000">Hızlı Erişim</h6>
               <div className="box-list-quicklinks">
                 <div className="item-quicklinks">
                   <div className="item-icon">
                     {" "}
                     <img
                       src="/assets/imgs/template/icons/notify.svg"
-                      alt="Travila"
+                      alt="Gezielibi"
                     />
                   </div>
                   <div className="item-info">
                     {" "}
                     <Link href="#">
-                      <h6 className="text-md-bold neutral-1000">
-                        Notifications
-                      </h6>
+                      <h6 className="text-md-bold neutral-1000">Bildirimler</h6>
                     </Link>
                     <p className="text-xs neutral-500 online">2 new messages</p>
                   </div>
@@ -85,63 +81,33 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                     {" "}
                     <img
                       src="/assets/imgs/template/icons/bookmark.svg"
-                      alt="Travila"
+                      alt="Gezielibi"
                     />
                   </div>
                   <div className="item-info">
                     {" "}
                     <Link href="#">
-                      <h6 className="text-md-bold neutral-1000">Bookmark</h6>
+                      <h6 className="text-md-bold neutral-1000">
+                        Yer İşaretleri
+                      </h6>
                     </Link>
                     <p className="text-xs neutral-500">7 tours, 2 rooms</p>
                   </div>
                 </div>
-                <div className="item-quicklinks">
-                  <div className="item-icon">
-                    {" "}
-                    <img
-                      src="/assets/imgs/template/icons/wallet.svg"
-                      alt="Travila"
-                    />
-                  </div>
-                  <div className="item-info">
-                    {" "}
-                    <Link href="#">
-                      <h6 className="text-md-bold neutral-1000">My Wallet</h6>
-                    </Link>
-                    <p className="text-xs neutral-500">$4500</p>
-                  </div>
-                </div>
-                <div className="item-quicklinks">
-                  <div className="item-icon">
-                    {" "}
-                    <img
-                      src="/assets/imgs/template/icons/discount.svg"
-                      alt="Travila"
-                    />
-                  </div>
-                  <div className="item-info">
-                    {" "}
-                    <Link href="#">
-                      <h6 className="text-md-bold neutral-1000">Discount</h6>
-                    </Link>
-                    <p className="text-xs neutral-500">Only today</p>
-                  </div>
-                </div>
+
                 <div className="item-quicklinks">
                   <div className="item-icon">
                     {" "}
                     <img
                       src="/assets/imgs/template/icons/friends.svg"
-                      alt="Travila"
+                      alt="Gezielibi"
                     />
                   </div>
                   <div className="item-info">
                     {" "}
                     <Link href="#">
-                      <h6 className="text-md-bold neutral-1000">Friends</h6>
+                      <h6 className="text-md-bold neutral-1000">Arkadaşlar</h6>
                     </Link>
-                    <p className="text-xs neutral-500">Your team</p>
                   </div>
                 </div>
                 <div className="item-quicklinks">
@@ -149,13 +115,13 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                     {" "}
                     <img
                       src="/assets/imgs/template/icons/tickets.svg"
-                      alt="Travila"
+                      alt="Gezielibi"
                     />
                   </div>
                   <div className="item-info">
                     {" "}
                     <Link href="#">
-                      <h6 className="text-md-bold neutral-1000">Tickets</h6>
+                      <h6 className="text-md-bold neutral-1000">Biletler</h6>
                     </Link>
                     <p className="text-xs neutral-500 resolved">
                       3 resolved tickets
@@ -167,34 +133,31 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                     {" "}
                     <img
                       src="/assets/imgs/template/icons/settings.svg"
-                      alt="Travila"
+                      alt="Gezielibi"
                     />
                   </div>
                   <div className="item-info">
                     {" "}
                     <Link href="#">
-                      <h6 className="text-md-bold neutral-1000">Setting</h6>
+                      <h6 className="text-md-bold neutral-1000">Ayarlar</h6>
                     </Link>
-                    <p className="text-xs neutral-500">Your account</p>
+                    <p className="text-xs neutral-500">Hesabınız</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="box-eventsdate">
-              <h6 className="title-eventsdate neutral-1000">Event Dates</h6>
-              <div className="box-calendar-events">
-                <div id="calendar-events" />
-              </div>
-            </div>
+
             <div className="box-savedplaces">
-              <h6 className="title-savedplaces neutral-1000">Saved Places</h6>
+              <h6 className="title-savedplaces neutral-1000">
+                Kaydedilmiş Turlar
+              </h6>
               <div className="box-list-places">
                 <div className="card-place">
                   <div className="card-image">
                     {" "}
                     <img
                       src="/assets/imgs/page/homepage1/place.png"
-                      alt="Travila"
+                      alt="Gezielibi"
                     />
                   </div>
                   <div className="card-info background-card">
@@ -209,7 +172,7 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                         {" "}
                         <img
                           src="/assets/imgs/template/icons/star.svg"
-                          alt="Travila"
+                          alt="Gezielibi"
                         />
                         4/5
                       </p>
@@ -240,7 +203,7 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                     {" "}
                     <img
                       src="/assets/imgs/page/homepage1/place2.png"
-                      alt="Travila"
+                      alt="Gezielibi"
                     />
                   </div>
                   <div className="card-info background-card">
@@ -255,7 +218,7 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                         {" "}
                         <img
                           src="/assets/imgs/template/icons/star.svg"
-                          alt="Travila"
+                          alt="Gezielibi"
                         />
                         4/5
                       </p>
@@ -286,7 +249,7 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                     {" "}
                     <img
                       src="/assets/imgs/page/homepage1/place3.png"
-                      alt="Travila"
+                      alt="Gezielibi"
                     />
                   </div>
                   <div className="card-info background-card">
@@ -301,7 +264,7 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
                         {" "}
                         <img
                           src="/assets/imgs/template/icons/star.svg"
-                          alt="Travila"
+                          alt="Gezielibi"
                         />
                         4/5
                       </p>
@@ -330,7 +293,7 @@ export default function Sidebar({ isSidebar, handleSidebar }: any) {
               </div>
             </div>
             <div className="box-contactus">
-              <h6 className="title-contactus neutral-1000">Contact Us</h6>
+              <h6 className="title-contactus neutral-1000">Bize Ulaşın</h6>
               <div className="contact-info">
                 <p className="address-2 text-md-medium neutral-1000">
                   4517 Washington Ave. <br />
