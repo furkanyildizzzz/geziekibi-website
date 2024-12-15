@@ -1,6 +1,8 @@
 "use client";
 import CurrencyDropdown from "@/components/elements/CurrencyDropdown";
 import LanguageDropdown from "@/components/elements/LanguageDropdown";
+import { popupCenter } from "@/util/popupCenter";
+import { signIn, useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 const ThemeSwitch = dynamic(() => import("@/components/elements/ThemeSwitch"), {
@@ -13,6 +15,7 @@ export default function Header1({
   handleRegister,
   handleSidebar,
 }: any) {
+  const { data: _, status } = useSession();
   return (
     <>
       <header className={`header sticky-bar ${scroll ? "stick" : ""}`}>
@@ -69,7 +72,15 @@ export default function Header1({
               <CurrencyDropdown /> */}
               <div className="d-none d-xxl-inline-block align-middle mr-15">
                 <ThemeSwitch />
-                <a className="btn btn-default btn-signin" onClick={handleLogin}>
+                <a
+                  className="btn btn-default btn-signin"
+                  // onClick={handleLogin}
+                  onClick={() =>
+                    // signIn("apple", { redirect: false }).then(handleLogin())
+                    popupCenter("/google-signin", "Google ile giriş yap")
+                  }
+                  // hidden={!(status === "unauthenticated")}
+                >
                   Giriş Yap
                 </a>
               </div>

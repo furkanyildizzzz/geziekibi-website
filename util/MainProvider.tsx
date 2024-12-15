@@ -3,6 +3,7 @@ import Store from "@/redux/Store";
 import React, { ReactNode, ErrorInfo } from "react";
 import { Provider } from "react-redux";
 import { unstable_batchedUpdates } from "react-dom";
+import { SessionProvider } from "next-auth/react";
 
 interface MainProviderProps {
   children: ReactNode;
@@ -48,9 +49,11 @@ class ErrorBoundary extends React.Component<
 
 const MainProvider: React.FC<MainProviderProps> = ({ children }) => {
   return (
-    <Provider store={Store}>
-      <ErrorBoundary>{children}</ErrorBoundary>
-    </Provider>
+    <SessionProvider>
+      <Provider store={Store}>
+        <ErrorBoundary>{children}</ErrorBoundary>
+      </Provider>
+    </SessionProvider>
   );
 };
 
