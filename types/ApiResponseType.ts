@@ -145,6 +145,7 @@ export type TourSuccessResponse = {
   dailyForms: TourDailyForm[];
   dates: TourDateSuccessResponse[];
   slugType: "tour";
+  importantNotes: string;
 };
 
 export type TourListSuccessResponse = {

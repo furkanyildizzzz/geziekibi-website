@@ -57,7 +57,10 @@ export const TurProgrami = ({
                 {f.dailyVisitingPlaces.length > 0 && (
                   <div>
                     <strong>Günün Gezi Noktaları: </strong>
-                    <span className="badge bg-primary text-wrap fst-italic">
+                    <span
+                      className="badge bg-primary text-wrap fst-italic"
+                      style={{ fontSize: "inherit" }}
+                    >
                       {f.dailyVisitingPlaces.map((s) => s.name).join(", ")}
                     </span>
                   </div>

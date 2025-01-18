@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-export const OnemliBilgiler = () => {
+export const OnemliBilgiler = ({
+  importantNotes,
+}: {
+  importantNotes: string;
+}) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const handleOpen = () => {
@@ -39,7 +43,11 @@ export const OnemliBilgiler = () => {
           className={isOpen ? "collapse" : "collapse show"}
           id="collapseDuration"
         >
-          <div className="card card-body">
+          <div
+            className="card card-body"
+            dangerouslySetInnerHTML={{ __html: importantNotes }}
+          />
+          {/* <div className="card card-body">
             <br />
             *Rezervasyon esnasında kesinlikle koltuk numarası sözü ve garantisi
             verilemez.
@@ -104,7 +112,7 @@ export const OnemliBilgiler = () => {
             otobüs deri koltuklu, abs, asr, klima, 1 adet buzdolabı, okuma
             lambaları, rehber anonsu için ses sistemi, cd ve dvd oynatıcı.
             <p></p>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

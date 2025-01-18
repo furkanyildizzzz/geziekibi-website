@@ -284,7 +284,7 @@ const TourDetail: React.FC<TourDetailProps> = ({ tour }) => {
                     <TurProgrami dailyForms={tour.dailyForms} />
                     <Hizmetler services={tour.tourServices} />
                     <FiyatlarVeTarihler dates={tour.dates} />
-                    <OnemliBilgiler />
+                    <OnemliBilgiler importantNotes={tour.importantNotes} />
                     {/* <SorularVeCevaplar />
                     <DegerlendirmeVeYorumlar /> */}
                   </div>
