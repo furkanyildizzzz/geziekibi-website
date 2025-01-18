@@ -69,7 +69,7 @@ const HomepageBlogSlider: React.FC<HomepageBlogSliderProps> = ({ blogs }) => {
                   {" "}
                   <Link
                     className="text-xl-bold neutral-1000"
-                    href={"/makale/" + b.seoLink}
+                    href={"/makaleler/" + b.seoLink}
                   >
                     {b.title}
                   </Link>
@@ -85,7 +85,7 @@ const HomepageBlogSlider: React.FC<HomepageBlogSliderProps> = ({ blogs }) => {
                       {" "}
                       <Link
                         className="btn btn-gray"
-                        href={"/makale/" + b.seoLink}
+                        href={"/makaleler/" + b.seoLink}
                       >
                         Okumaya Devam Et
                       </Link>

@@ -17,7 +17,7 @@ const TopCategory1: React.FC<TopCategory1Props> = ({ categories }) => {
             </div>
             <div className="col-md-4">
               <div className="d-flex justify-content-end">
-                <Link className="btn btn-black-lg" href="/tour-grid">
+                <Link className="btn btn-black-lg" href="/turlar">
                   Daha Fazla
                   <svg
                     width={16}
@@ -61,18 +61,20 @@ const TopCategory1: React.FC<TopCategory1Props> = ({ categories }) => {
                     </div>
                     <div className="card-info">
                       {" "}
-                      <Link className="card-title" href="/destination-2">
+                      <Link
+                        className="card-title"
+                        href={"/kategoriler/" + c.seoLink}
+                      >
                         {c.name}
                       </Link>
                       <div className="card-meta">
                         <div className="meta-links">
                           {" "}
-                          <Link href="#">356 Tur, </Link>
-                          <Link href="#">2488 Katılımcı</Link>
+                          <Link href="#">{c.tourCount} Tur </Link>
                         </div>
                         <div className="card-button">
                           {" "}
-                          <Link href="/destination-2">
+                          <Link href={"/kategoriler/" + c.seoLink}>
                             <svg
                               width={10}
                               height={10}

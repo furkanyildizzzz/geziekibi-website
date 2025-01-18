@@ -44,85 +44,78 @@ export default function Footer3() {
               <div className="col-lg-6">
                 <div className="row">
                   <div className="col-md-3 col-sm-6">
-                    <h6 className="neutral-1000">Company</h6>
+                    <h6 className="neutral-1000">Şirket</h6>
                     <ul className="menu-footer">
                       <li>
-                        <Link href="#">About Us</Link>
+                        <Link href="/hakkimizda">Hakkımızda</Link>
                       </li>
                       <li>
-                        <Link href="#">Community Blog</Link>
+                        <Link href="/iletisim">Bizimle İetişime Geçin</Link>
                       </li>
                       <li>
-                        <Link href="#">Jobs Careers</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Contact Us</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Our Awards</Link>
+                        <Link href="/odullerimiz">Ödüllerimiz</Link>
                       </li>
                     </ul>
                   </div>
                   <div className="col-md-3 col-sm-6">
-                    <h6 className="neutral-1000">Services</h6>
+                    <h6 className="neutral-1000">Hizmetler</h6>
                     <ul className="menu-footer">
                       <li>
-                        <Link href="#">Tour Guide</Link>
+                        <Link href="/turlar/rehber">Tur Rehberlerimiz</Link>
                       </li>
                       <li>
-                        <Link href="#">Tour Booking</Link>
+                        <Link href="/turlar">Turlarımız</Link>
                       </li>
                       <li>
-                        <Link href="#">Hotel Booking</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Ticket Booking</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Rental Services</Link>
+                        <Link href="/biletler">Uçak Bileti</Link>
                       </li>
                     </ul>
                   </div>
                   <div className="col-md-3 col-sm-6">
-                    <h6 className="neutral-1000">Legal</h6>
+                    <h6 className="neutral-1000">Yasal</h6>
                     <ul className="menu-footer">
                       <li>
-                        <Link href="#">Terms of Service</Link>
+                        <Link href="/kvkk">KVKK</Link>
                       </li>
                       <li>
-                        <Link href="#">Privacy Policy</Link>
+                        <Link href="/gizlilik-politikasi">
+                          Gizlilik Politikası
+                        </Link>
                       </li>
                       <li>
-                        <Link href="#">Cookies Policy</Link>
+                        <Link href="/kullanim-politikasi">
+                          Kullanım Politikası
+                        </Link>
                       </li>
                       <li>
-                        <Link href="#">Data Processing</Link>
+                        <Link href="/bilgi-guvenligi-politikasi">
+                          Bilgi Güvenliği Politikası
+                        </Link>
                       </li>
                       <li>
-                        <Link href="#">Data Policy</Link>
+                        <Link href="/cerez-politikasi">Çerez Politikası</Link>
+                      </li>
+                      <li>
+                        <Link href="/uyelik-sozlesmesi">
+                          Üyelik Sözleşmesi Politikası
+                        </Link>
+                      </li>{" "}
+                      <li>
+                        <Link href="/insan-kaynaklari">İnsan Kaynakları</Link>
                       </li>
                     </ul>
                   </div>
                   <div className="col-md-3 col-sm-6">
-                    <h6 className="neutral-1000">Support</h6>
+                    <h6 className="neutral-1000">Destek</h6>
                     <ul className="menu-footer">
                       <li>
-                        <Link href="#">Forum support</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Help Center</Link>
-                      </li>
-                      <li>
-                        <Link href="#">How it works</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Security</Link>
+                        <Link href="/iletisim">Yardım Merkezi</Link>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-              <div className="col-lg-3">
+              {/* <div className="col-lg-3">
                 <p className="text-lg neutral-1000 mb-15">Newsletter</p>
                 <div className="d-flex align-items-center">
                   <form
@@ -141,7 +134,7 @@ export default function Footer3() {
                     />
                   </form>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="footer-bottom mt-50">
               <div className="row align-items-center">

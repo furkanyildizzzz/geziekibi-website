@@ -70,12 +70,12 @@ export enum PageTypeEnum {
 export const PageTypeEnumDisplayNames: {
   [key in PageTypeEnum]: string;
 } = {
-  [PageTypeEnum.PageAboutUs]: "About Us",
-  [PageTypeEnum.PageSecretPolicy]: "Secret Policy",
-  [PageTypeEnum.PageUsagePolicy]: "Usage Policy",
-  [PageTypeEnum.PageInformationSecurityPolicy]: "Information Security Policy",
-  [PageTypeEnum.PageKVKKPolicy]: "KVKK Policy",
-  [PageTypeEnum.PageCookiePolicy]: "Cookie Policy",
-  [PageTypeEnum.PageMembershipAgreementPolicy]: "Membership Agreement Policy",
-  [PageTypeEnum.PageHumanResources]: "Human Resources",
+  [PageTypeEnum.PageAboutUs]: "Hakkımızda",
+  [PageTypeEnum.PageSecretPolicy]: "Gizlilik Politikası",
+  [PageTypeEnum.PageUsagePolicy]: "Kullanım Politikası",
+  [PageTypeEnum.PageInformationSecurityPolicy]: "Bilgi Güvenliği Politikası",
+  [PageTypeEnum.PageKVKKPolicy]: "KVKK Politikası",
+  [PageTypeEnum.PageCookiePolicy]: "Çerez Politikası",
+  [PageTypeEnum.PageMembershipAgreementPolicy]: "Üyelik Sözleşmesi Politikası",
+  [PageTypeEnum.PageHumanResources]: "İnsan Kaynakları",
 };

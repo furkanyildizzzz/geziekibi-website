@@ -3,16 +3,31 @@ import Link from "next/link";
 import Dropdown from "react-bootstrap/Dropdown";
 import MyDatePicker from "./MyDatePicker";
 import { TourDailyPath } from "@/types/ApiResponseType";
+import { MouseEvent, useState } from "react";
+import { SearchParams } from "@/app/api/tour/searchTours";
 
 interface SearchFilterBottomProps {
   destinations: TourDailyPath[];
   miniField: any;
+  handleSearch: (searchParams: SearchParams) => void;
 }
 
 const SearchFilterBottom: React.FC<SearchFilterBottomProps> = ({
   miniField,
   destinations,
+  handleSearch,
 }) => {
+  const [destination, setDestination] = useState<TourDailyPath | null>(
+    destinations[0]
+  );
+  const [startDate, setStartDate] = useState(new Date());
+
+  const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log({ startDate, destination });
+    await handleSearch({ startDate, destination });
+  };
+
   return (
     <>
       <div className="box-bottom-search background-card">
@@ -26,36 +41,36 @@ const SearchFilterBottom: React.FC<SearchFilterBottomProps> = ({
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Adana
+                {destination ? destination.name : "Seçiniz"}
               </Dropdown.Toggle>
-              <Dropdown.Menu as="ul" className="dropdown-menu">
+              <Dropdown.Menu
+                as="ul"
+                className="dropdown-menu"
+                style={{ maxHeight: "300px", overflowY: "scroll" }}
+              >
+                <li
+                  className="dropdown-item"
+                  key={0}
+                  onClick={() => setDestination(null)}
+                >
+                  Seçiniz
+                </li>
                 {destinations.map((d) => (
-                  <li key={d.id}>
-                    <Link className="dropdown-item" href="#">
-                      {d.name}
-                    </Link>
+                  <li
+                    className="dropdown-item"
+                    key={d.id}
+                    onClick={() => setDestination(d)}
+                  >
+                    {d.name}
                   </li>
                 ))}
-
-                {/* <li>
-                  <Link className="dropdown-item" href="#">
-                    London, England
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" href="#">
-                    New York City, USA
-                  </Link>
-                </li> */}
               </Dropdown.Menu>
             </Dropdown>
           </div>
         )}
         <div className="item-search item-search-2 item-search-custom ">
           <label className="text-sm-bold neutral-500">Tarih</label>
-          <div className="box-calendar-date">
-            <MyDatePicker />
-          </div>
+          <MyDatePicker startDate={startDate} setStartDate={setStartDate} />
         </div>
 
         <div className="item-search bd-none d-flex justify-content-end flex-column align-items-center gap-3">
@@ -64,7 +79,7 @@ const SearchFilterBottom: React.FC<SearchFilterBottomProps> = ({
               Yardım?
             </Link>
           </div>
-          <button className="btn btn-black-lg">
+          <button className="btn btn-black-lg" onClick={handleClick}>
             <svg
               width={20}
               height={20}

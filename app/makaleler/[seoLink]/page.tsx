@@ -1,16 +1,13 @@
 import {
   BlogSuccessResponse,
   HomepageBlogListSuccessResponse,
-  TourSuccessResponse,
 } from "@/types/ApiResponseType";
-import TourDetail from "@/components/sections/TourDetail";
-import { getTourDetail } from "@/app/api/tour/tourDetail";
 import { notFound } from "next/navigation";
 import { getBlogDetail } from "@/app/api/blog/blogDetail";
 import BlogDetail from "@/components/sections/BlogDetail";
 import { getBlogs } from "@/app/api/homepage/getBlogs";
 
-export default async function Tur({
+export default async function Blog({
   params: { seoLink },
 }: {
   params: { seoLink: string };

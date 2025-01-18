@@ -38,7 +38,7 @@ export default function Header1({
                   <ul className="main-menu">
                     <li className="mega-li">
                       <Link className="active" href="/">
-                        Home
+                        Anasayfa
                       </Link>
                     </li>
                     <li className="mega-li-small">
@@ -46,11 +46,11 @@ export default function Header1({
                     </li>
 
                     <li className="">
-                      <Link href="/Biletler">Makaleler</Link>
+                      <Link href="/makaleler">Makaleler</Link>
                     </li>
-                    <li className="">
-                      <Link href="/Biletler">Biletler</Link>
-                    </li>
+                    {/* <li className="">
+                      <Link href="/biletler">Biletler</Link>
+                    </li> */}
                     <li className="">
                       <Link href="/hakkimizda">Hakkımızda</Link>
                     </li>
@@ -58,7 +58,7 @@ export default function Header1({
                       <Link href="/iletisim">İletişim</Link>
                     </li>
                     <li>
-                      <Link href="/iletisim">SSS</Link>
+                      <Link href="/sss">SSS</Link>
                     </li>
                   </ul>
                 </nav>

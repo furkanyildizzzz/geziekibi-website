@@ -230,6 +230,7 @@ export type FeaturedTourListSuccessResponse = {
   uploadedPrimaryImages: CloudinaryImage[];
   daysAndNights: string;
   pricePerPerson: number;
+  category: TourCategorySuccessResponse;
 };
 
 export type CategoryListSuccessResponse = {
@@ -240,6 +241,18 @@ export type CategoryListSuccessResponse = {
   parent: CategoryListSuccessResponse;
   subCategories: CategoryListSuccessResponse[];
   uploadedPrimaryImages: CloudinaryImage[];
+  tourCount: number;
+};
+
+export type BlogCategoryListSuccessResponse = {
+  id: number;
+  name: string;
+  seoLink: string;
+  description: string;
+  parent: CategoryListSuccessResponse;
+  subCategories: CategoryListSuccessResponse[];
+  uploadedPrimaryImages: CloudinaryImage[];
+  blogCount: number;
 };
 
 export type HomepageBlogListSuccessResponse = {

@@ -20,8 +20,8 @@ const News2: React.FC<News2Props> = ({ blogs }) => {
             </div>
             <div className="col-md-6 mb-30 wow fadeInRight">
               <div className="d-flex justify-content-center justify-content-md-end">
-                <Link className="btn btn-black-lg" href="#">
-                  View More
+                <Link className="btn btn-black-lg" href="/makaleler">
+                  Daha Fazla
                   <svg
                     width={16}
                     height={16}

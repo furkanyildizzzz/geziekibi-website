@@ -119,7 +119,7 @@ const TopRated2: React.FC<TopRated2Props> = ({ tours }) => {
                           {" "}
                           <Link
                             className="heading-6 neutral-1000"
-                            href="/hotel-detail-2"
+                            href={"turlar/" + t.seoLink}
                           >
                             {t.title}{" "}
                           </Link>
@@ -199,9 +199,9 @@ const TopRated2: React.FC<TopRated2Props> = ({ tours }) => {
                               {" "}
                               <Link
                                 className="btn btn-gray"
-                                href="/hotel-detail-2"
+                                href={"turlar/" + t.seoLink}
                               >
-                                Book Now
+                                İncele
                               </Link>
                             </div>
                           </div>

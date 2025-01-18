@@ -60,10 +60,6 @@ const OurFeatured1: React.FC<OurFeatured1Props> = ({ tours }) => {
                   <div className="card-journey-small background-card">
                     <div className="card-image">
                       <img
-                        // src={
-                        //   t.uploadedPrimaryImages[0].url ||
-                        //   "/assets/imgs/turlar/ege-turu-806-646.webp"
-                        // }
                         src={imageFunctions.resizeImage(
                           t.uploadedPrimaryImages[0]?.url ||
                             "/assets/imgs/turlar/ege-turu-806-646.webp",
@@ -89,7 +85,7 @@ const OurFeatured1: React.FC<OurFeatured1Props> = ({ tours }) => {
                         {" "}
                         <Link
                           className="heading-6 neutral-1000"
-                          href={"tur/" + t.seoLink}
+                          href={"turlar/" + t.seoLink}
                           onClick={() =>
                             handleSetNavigationData(t.title, t.seoLink, "tour")
                           }
@@ -114,9 +110,9 @@ const OurFeatured1: React.FC<OurFeatured1Props> = ({ tours }) => {
                             {" "}
                             <Link
                               className="btn btn-gray"
-                              href="/tour-detail-2"
+                              href={"turlar/" + t.seoLink}
                             >
-                              Rezervasyon Yap
+                              İncele
                             </Link>
                           </div>
                         </div>
@@ -125,94 +121,6 @@ const OurFeatured1: React.FC<OurFeatured1Props> = ({ tours }) => {
                   </div>
                 </div>
               ))}
-              {/* <div className="col-lg-4 col-md-6">
-                <div className="card-journey-small background-card">
-                  <div className="card-image">
-                    <img
-                      src="/assets/imgs/turlar/kapadokya-turu-806-646.jpg"
-                      alt="Kapadokya Turu"
-                    />
-                  </div>
-                  <div className="card-info background-card">
-                    <div className="card-rating">
-                      <div className="card-left"> </div>
-                      <div className="card-right"></div>
-                    </div>
-                    <div className="card-title">
-                      {" "}
-                      <Link
-                        className="heading-6 neutral-1000"
-                        href="/tour-detail-2"
-                      >
-                        Kapadokya Turu
-                      </Link>
-                    </div>
-                    <div className="card-program">
-                      <div className="card-duration-tour">
-                        <p className="icon-duration text-md-medium neutral-500">
-                          2 Gün 3 Gece
-                        </p>
-                      </div>
-                      <div className="endtime">
-                        <div className="card-price">
-                          <h6 className="heading-6 neutral-1000">10.000₺</h6>
-                          <p className="text-md-medium neutral-500">/ kişi</p>
-                        </div>
-                        <div className="card-button">
-                          {" "}
-                          <Link className="btn btn-gray" href="/tour-detail-2">
-                            Rezervasyon Yap
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6">
-                <div className="card-journey-small background-card">
-                  <div className="card-image">
-                    <img
-                      src="/assets/imgs/turlar/karadeniz-turu-806-646.jpg"
-                      alt="Kapadokya Turu"
-                    />
-                  </div>
-                  <div className="card-info background-card">
-                    <div className="card-rating">
-                      <div className="card-left"> </div>
-                      <div className="card-right"></div>
-                    </div>
-                    <div className="card-title">
-                      {" "}
-                      <Link
-                        className="heading-6 neutral-1000"
-                        href="/tour-detail-2"
-                      >
-                        Karadeniz Turu
-                      </Link>
-                    </div>
-                    <div className="card-program">
-                      <div className="card-duration-tour">
-                        <p className="icon-duration text-md-medium neutral-500">
-                          2 Gün 3 Gece
-                        </p>
-                      </div>
-                      <div className="endtime">
-                        <div className="card-price">
-                          <h6 className="heading-6 neutral-1000">10.000₺</h6>
-                          <p className="text-md-medium neutral-500">/ kişi</p>
-                        </div>
-                        <div className="card-button">
-                          {" "}
-                          <Link className="btn btn-gray" href="/tour-detail-2">
-                            Rezervasyon Yap
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
