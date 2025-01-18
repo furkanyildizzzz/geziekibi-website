@@ -266,3 +266,10 @@ export type HomepageBlogListSuccessResponse = {
   tags: TagSuccessResponse[];
   category: BlogCategorySuccessResponse;
 };
+
+export type FAQSuccessResponse = {
+  id: number;
+  Question: string;
+  Answer: string;
+  Order: number;
+};

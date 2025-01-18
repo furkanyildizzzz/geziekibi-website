@@ -58,7 +58,7 @@ export default function Header1({
                       <Link href="/iletisim">İletişim</Link>
                     </li>
                     <li>
-                      <Link href="/sss">SSS</Link>
+                      <Link href="/sikcasorulansorular">SSS</Link>
                     </li>
                   </ul>
                 </nav>
