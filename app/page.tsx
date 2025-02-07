@@ -12,12 +12,14 @@ import {
   CategoryListSuccessResponse,
   FeaturedTourListSuccessResponse,
   HomepageBlogListSuccessResponse,
+  SliderResponse,
   TourDailyPath,
 } from "@/types/ApiResponseType";
 import { getCategories } from "./api/homepage/getCategories";
 import { getTopTours } from "./api/homepage/getTopTours";
 import { getBlogs } from "./api/homepage/getBlogs";
 import { getDestinations } from "./api/homepage/getDestinations";
+import { getHomepageSliders } from "./api/homepage/getHomepageSliders";
 
 const Home = async () => {
   const featuredToursRequest = getFeaturedTours();
@@ -25,12 +27,14 @@ const Home = async () => {
   const topToursRequest = getTopTours();
   const blogsRequest = getBlogs();
   const destinationsRequest = getDestinations();
+  const homepageSlidersRequest = getHomepageSliders();
 
   const featuredToursResponse = await featuredToursRequest;
   const categoriesResponse = await categoriesRequest;
   const topToursResponse = await topToursRequest;
   const blogResponse = await blogsRequest;
   const destinationsResponse = await destinationsRequest;
+  const homepageSlidersResponse = await homepageSlidersRequest;
 
   let featuredTours: FeaturedTourListSuccessResponse[] = [];
   if ("data" in featuredToursResponse) {
@@ -56,10 +60,15 @@ const Home = async () => {
   if ("data" in destinationsResponse) {
     destinations = destinationsResponse.data;
   }
+
+  let sliders: SliderResponse[] = [];
+  if ("data" in homepageSlidersResponse) {
+    sliders = homepageSlidersResponse.data;
+  }
   return (
     <>
       <Layout headerStyle={1} footerStyle={5}>
-        <BannerHome1 destinations={destinations} />
+        <BannerHome1 destinations={destinations} sliders={sliders} />
         <OurFeatured1 tours={featuredTours} />
         <TopCategory1 categories={categories} />
         <Banner />

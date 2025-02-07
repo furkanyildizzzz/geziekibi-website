@@ -273,3 +273,9 @@ export type FAQSuccessResponse = {
   Answer: string;
   Order: number;
 };
+export type SliderResponse = {
+  id: number;
+  isActive: string;
+  order: number;
+  image: CloudinaryImage;
+};
