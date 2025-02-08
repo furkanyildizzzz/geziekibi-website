@@ -68,20 +68,32 @@ export default function Header1({
               {/* <LanguageDropdown />
               <CurrencyDropdown /> */}
               <div className="d-none d-xxl-inline-block align-middle mr-15">
+                <Link className="btn change-mode mr-15" href="/">
+                  <img
+                    className="light-mode"
+                    alt="Geziekibi"
+                    src="/assets/imgs/ari-80.png"
+                  />
+                  <img
+                    className="dark-mode"
+                    alt="Geziekibi"
+                    src="/assets/imgs/ari-80.png"
+                  />
+                </Link>
                 <ThemeSwitch />
-                <a className="btn btn-default btn-signin" onClick={handleLogin}>
+                {/* <a className="btn btn-default btn-signin" onClick={handleLogin}>
                   Giriş Yap
-                </a>
+                </a> */}
               </div>
-              <div
-                className="burger-icon-2 burger-icon-white"
-                onClick={handleSidebar}
-              >
-                <img
-                  src="/assets/imgs/template/icons/menu.svg"
-                  alt="Geziekibi"
-                />
-              </div>
+              {/* <div
+                  className="burger-icon-2 burger-icon-white"
+                  onClick={handleSidebar}
+                >
+                  <img
+                    src="/assets/imgs/template/icons/menu.svg"
+                    alt="Geziekibi"
+                  />
+                </div> */}
               <div
                 className="burger-icon burger-icon-white"
                 onClick={handleMobileMenu}
