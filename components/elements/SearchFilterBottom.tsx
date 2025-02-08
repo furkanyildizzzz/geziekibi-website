@@ -3,13 +3,14 @@ import Link from "next/link";
 import Dropdown from "react-bootstrap/Dropdown";
 import MyDatePicker from "./MyDatePicker";
 import { TourDailyPath } from "@/types/ApiResponseType";
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import { SearchParams } from "@/app/api/tour/searchTours";
+import { useSearchParams } from "next/navigation";
 
 interface SearchFilterBottomProps {
   destinations: TourDailyPath[];
   miniField: any;
-  handleSearch: (searchParams: SearchParams) => void;
+  handleSearch: (searchParams: SearchParams) => Promise<void> | undefined;
 }
 
 const SearchFilterBottom: React.FC<SearchFilterBottomProps> = ({
@@ -17,16 +18,34 @@ const SearchFilterBottom: React.FC<SearchFilterBottomProps> = ({
   destinations,
   handleSearch,
 }) => {
+  const searchParams = useSearchParams();
+
+  const startDateParam = searchParams.get("startDate")
+    ? new Date(searchParams.get("startDate")!)
+    : null;
+
+  const destinationParam = searchParams.get("destination");
+
   const [destination, setDestination] = useState<TourDailyPath | null>(
-    destinations[0]
+    destinationParam
+      ? destinations.find((d) => d.id === parseInt(destinationParam)) || null
+      : null
   );
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(startDateParam || new Date());
 
   const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log({ startDate, destination });
     await handleSearch({ startDate, destination });
   };
+
+  useEffect(() => {
+    if (destinationParam) {
+      setDestination(
+        destinations.find((d) => d.id === parseInt(destinationParam)) || null
+      );
+    }
+  }, [destinations]);
 
   return (
     <>

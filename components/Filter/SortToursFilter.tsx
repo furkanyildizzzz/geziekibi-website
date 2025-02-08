@@ -10,6 +10,7 @@ export default function SortToursFilter({
   startItemIndex,
   endItemIndex,
   sortedTours,
+  handleClearAllFilters,
 }: any) {
   return (
     <>
@@ -48,7 +49,7 @@ export default function SortToursFilter({
         </div>
         <div className="col-xl-8 col-md-8 mb-10 text-lg-end text-center">
           <div className="box-item-sort">
-            <button onClick={handleClearFilters}>Sıfırla</button>
+            <button onClick={handleClearAllFilters}>Sıfırla</button>
             <div className="item-sort border-1">
               <span className="text-xs-medium neutral-500 mr-5">Göster</span>
               <select value={itemsPerPage} onChange={handleItemsPerPageChange}>

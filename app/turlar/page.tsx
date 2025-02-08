@@ -23,13 +23,8 @@ import { getCategories } from "../api/homepage/getCategories";
 import ByName from "@/components/Filter/ByName";
 import { getDestinations } from "../api/homepage/getDestinations";
 import { SearchParams, searchTours } from "../api/tour/searchTours";
+import { useSearchParams } from "next/navigation";
 
-// const toursData = rawToursData.map((tour) => ({
-//   ...tour,
-//   duration: parseFloat(tour.duration as string),
-//   groupSize: parseInt(tour.groupSize as unknown as string),
-//   rating: parseFloat(tour.rating as string),
-// }));
 export default function TourGrid() {
   const [tours, setTours] = useState<Tour[]>([]);
   const [repeatedTours, setRepeatedTours] = useState<Tour[]>([]);
@@ -42,6 +37,14 @@ export default function TourGrid() {
   const [destinations, setDestinations] = useState<TourDailyPath[]>([]);
   const [minFilterPrice, setMinFilterPrice] = useState(0);
   const [maxFilterPrice, setMaxFilterPrice] = useState(100000);
+
+  const searchParams = useSearchParams();
+
+  const startDate = searchParams.get("startDate")
+    ? new Date(searchParams.get("startDate")!)
+    : null;
+
+  const destination = searchParams.get("destination");
 
   const fetchTours = async () => {
     const response = await getTours();
@@ -70,6 +73,13 @@ export default function TourGrid() {
 
       calculateMinAndMaxFilterPrice(toursData);
     }
+  };
+
+  const handleClearAllFilters = () => {
+    handleSearch({
+      destination: null,
+      startDate: null,
+    });
   };
 
   const handleSearch = async (params: SearchParams) => {
@@ -139,7 +149,17 @@ export default function TourGrid() {
   };
 
   useEffect(() => {
-    fetchTours();
+    if (startDate || destination) {
+      handleSearch({
+        startDate: startDate,
+        destination: {
+          id: parseInt(destination!),
+          name: "",
+        } as TourDailyPath,
+      });
+    } else {
+      fetchTours();
+    }
     fetchTopTours();
     fetchCategories();
     fetchDestinations();
@@ -205,6 +225,7 @@ export default function TourGrid() {
                       startItemIndex={startItemIndex}
                       endItemIndex={endItemIndex}
                       sortedTours={sortedTours}
+                      handleClearAllFilters={handleClearAllFilters}
                     />
                   </div>
                   <div className="box-grid-tours wow fadeIn">
