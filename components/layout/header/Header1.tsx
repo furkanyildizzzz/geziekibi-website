@@ -95,12 +95,32 @@ export default function Header1({
                   />
                 </div> */}
               <div
-                className="burger-icon burger-icon-white"
-                onClick={handleMobileMenu}
+                className="burger-icon"
+                style={{
+                  width: "unset",
+                  height: "unset",
+                  position: "unset",
+                  backgroundColor: "unset",
+                }}
               >
-                <span className="burger-icon-top" />
-                <span className="burger-icon-mid" />
-                <span className="burger-icon-bottom" />
+                <div className="d-xxl-inline-block align-middle">
+                  <Link
+                    className="btn change-mode"
+                    href="/"
+                    style={{ padding: "unset" }}
+                  >
+                    <img
+                      className="light-mode"
+                      alt="Geziekibi"
+                      src="/assets/imgs/ari-80.png"
+                    />
+                    <img
+                      className="dark-mode"
+                      alt="Geziekibi"
+                      src="/assets/imgs/ari-80.png"
+                    />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
