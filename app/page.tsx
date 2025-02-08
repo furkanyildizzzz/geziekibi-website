@@ -11,6 +11,7 @@ import { getFeaturedTours } from "./api/homepage/getFeaturedTours";
 import {
   CategoryListSuccessResponse,
   FeaturedTourListSuccessResponse,
+  GoogleReviewResponse,
   HomepageBlogListSuccessResponse,
   SliderResponse,
   TourDailyPath,
@@ -20,6 +21,7 @@ import { getTopTours } from "./api/homepage/getTopTours";
 import { getBlogs } from "./api/homepage/getBlogs";
 import { getDestinations } from "./api/homepage/getDestinations";
 import { getHomepageSliders } from "./api/homepage/getHomepageSliders";
+import { getReviews } from "./api/googleApis/getReviews";
 
 const Home = async () => {
   const featuredToursRequest = getFeaturedTours();
@@ -28,6 +30,7 @@ const Home = async () => {
   const blogsRequest = getBlogs();
   const destinationsRequest = getDestinations();
   const homepageSlidersRequest = getHomepageSliders();
+  const googleReviews = getReviews();
 
   const featuredToursResponse = await featuredToursRequest;
   const categoriesResponse = await categoriesRequest;
@@ -35,6 +38,7 @@ const Home = async () => {
   const blogResponse = await blogsRequest;
   const destinationsResponse = await destinationsRequest;
   const homepageSlidersResponse = await homepageSlidersRequest;
+  const googleReviewsResponse = await googleReviews;
 
   let featuredTours: FeaturedTourListSuccessResponse[] = [];
   if ("data" in featuredToursResponse) {
@@ -65,6 +69,14 @@ const Home = async () => {
   if ("data" in homepageSlidersResponse) {
     sliders = homepageSlidersResponse.data;
   }
+
+  let reviews: GoogleReviewResponse[] = [];
+  if ("errorMessage" in googleReviewsResponse) {
+    reviews = [];
+  } else {
+    reviews = googleReviewsResponse;
+  }
+
   return (
     <>
       <Layout headerStyle={1} footerStyle={5}>
@@ -74,7 +86,7 @@ const Home = async () => {
         <Banner />
         <TopRated2 tours={topTours} />
         <WhyTravelUs />
-        <Testimonials2 />
+        {reviews.length && <Testimonials2 reviews={reviews} />}
         <News2 blogs={blogs} />
       </Layout>
     </>
