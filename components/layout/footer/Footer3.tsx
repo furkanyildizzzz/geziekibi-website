@@ -14,12 +14,14 @@ export default function Footer3() {
                       alt="Travila"
                       src="/assets/imgs/logo-80.png"
                       //   src="/assets/imgs/template/logo-footer.svg"
+                      style={{ width: "120px", height: "auto" }}
                     />
                     <img
                       className="light-mode"
                       alt="Travila"
                       src="/assets/imgs/logo-80.png"
                       //   src="/assets/imgs/template/logo-footer-w.svg"
+                      style={{ width: "120px", height: "auto" }}
                     />
                   </Link>
                   <div className="box-info-contact mt-0">

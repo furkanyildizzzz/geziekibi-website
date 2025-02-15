@@ -23,7 +23,7 @@ export async function apiRequest<T>(
     // Prepare body
     const requestBody = isFormData ? body : JSON.stringify(body);
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/website/${url}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/${url}`,
       {
         method,
         headers,

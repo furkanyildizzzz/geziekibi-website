@@ -25,11 +25,13 @@ export default function Header1({
                     className="light-mode"
                     alt="Geziekibi"
                     src="/assets/imgs/logo-80.png"
+                    style={{ width: "120px", height: "auto" }}
                   />
                   <img
                     className="dark-mode"
                     alt="Geziekibi"
                     src="/assets/imgs/logo-80.png"
+                    style={{ width: "120px", height: "auto" }}
                   />
                 </Link>
               </div>
@@ -73,11 +75,13 @@ export default function Header1({
                     className="light-mode"
                     alt="Geziekibi"
                     src="/assets/imgs/ari-80.png"
+                    style={{ width: "120px", height: "auto" }}
                   />
                   <img
                     className="dark-mode"
                     alt="Geziekibi"
                     src="/assets/imgs/ari-80.png"
+                    style={{ width: "120px", height: "auto" }}
                   />
                 </Link>
                 <ThemeSwitch />
