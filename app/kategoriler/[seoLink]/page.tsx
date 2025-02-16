@@ -5,12 +5,12 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Head from "next/head";
 
+type tParams = Promise<{ seoLink: string }>;
+
 // `params`'ı doğru şekilde alıyoruz
-export default async function Category({
-  params: { seoLink },
-}: {
-  params: { seoLink: string };
-}) {
+export default async function Category({ params }: { params: tParams }) {
+  const { seoLink }: { seoLink: string } = await params;
+
   // `seoLink`'i kullanarak veri çekiyoruz
   const response = await getCategory(seoLink);
 

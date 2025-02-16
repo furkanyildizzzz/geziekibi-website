@@ -55,7 +55,7 @@ export default function BannerHome2() {
               <div className="item-search item-search-2">
                 <label className="text-sm-bold neutral-500">Check In</label>
                 <div className="box-calendar-date">
-                  <MyDatePicker />
+                  {/* <MyDatePicker /> */}
                 </div>
               </div>
             </div>
