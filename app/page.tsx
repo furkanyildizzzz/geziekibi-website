@@ -24,58 +24,90 @@ import { getHomepageSliders } from "./api/homepage/getHomepageSliders";
 import { getReviews } from "./api/googleApis/getReviews";
 
 const Home = async () => {
-  const featuredToursRequest = getFeaturedTours();
-  const categoriesRequest = getCategories();
-  const topToursRequest = getTopTours();
-  const blogsRequest = getBlogs();
-  const destinationsRequest = getDestinations();
-  const homepageSlidersRequest = getHomepageSliders();
-  const googleReviews = getReviews();
+  // const featuredToursRequest = getFeaturedTours();
+  // const categoriesRequest = getCategories();
+  // const topToursRequest = getTopTours();
+  // const blogsRequest = getBlogs();
+  // const destinationsRequest = getDestinations();
+  // const homepageSlidersRequest = getHomepageSliders();
+  // const googleReviews = getReviews();
 
-  const featuredToursResponse = await featuredToursRequest;
-  const categoriesResponse = await categoriesRequest;
-  const topToursResponse = await topToursRequest;
-  const blogResponse = await blogsRequest;
-  const destinationsResponse = await destinationsRequest;
-  const homepageSlidersResponse = await homepageSlidersRequest;
-  const googleReviewsResponse = await googleReviews;
+  // const featuredToursResponse = await featuredToursRequest;
+  // const categoriesResponse = await categoriesRequest;
+  // const topToursResponse = await topToursRequest;
+  // const blogResponse = await blogsRequest;
+  // const destinationsResponse = await destinationsRequest;
+  // const homepageSlidersResponse = await homepageSlidersRequest;
+  // const googleReviewsResponse = await googleReviews;
 
-  let featuredTours: FeaturedTourListSuccessResponse[] = [];
-  if ("data" in featuredToursResponse) {
-    featuredTours = featuredToursResponse.data;
-  }
+  // let featuredTours: FeaturedTourListSuccessResponse[] = [];
+  // if ("data" in featuredToursResponse) {
+  //   featuredTours = featuredToursResponse.data;
+  // }
 
-  let categories: CategoryListSuccessResponse[] = [];
-  if ("data" in categoriesResponse) {
-    categories = categoriesResponse.data;
-  }
+  // let categories: CategoryListSuccessResponse[] = [];
+  // if ("data" in categoriesResponse) {
+  //   categories = categoriesResponse.data;
+  // }
 
-  let topTours: FeaturedTourListSuccessResponse[] = [];
-  if ("data" in topToursResponse) {
-    topTours = topToursResponse.data;
-  }
+  // let topTours: FeaturedTourListSuccessResponse[] = [];
+  // if ("data" in topToursResponse) {
+  //   topTours = topToursResponse.data;
+  // }
 
-  let blogs: HomepageBlogListSuccessResponse[] = [];
-  if ("data" in blogResponse) {
-    blogs = blogResponse.data;
-  }
+  // let blogs: HomepageBlogListSuccessResponse[] = [];
+  // if ("data" in blogResponse) {
+  //   blogs = blogResponse.data;
+  // }
 
-  let destinations: TourDailyPath[] = [];
-  if ("data" in destinationsResponse) {
-    destinations = destinationsResponse.data;
-  }
+  // let destinations: TourDailyPath[] = [];
+  // if ("data" in destinationsResponse) {
+  //   destinations = destinationsResponse.data;
+  // }
 
-  let sliders: SliderResponse[] = [];
-  if ("data" in homepageSlidersResponse) {
-    sliders = homepageSlidersResponse.data;
-  }
+  // let sliders: SliderResponse[] = [];
+  // if ("data" in homepageSlidersResponse) {
+  //   sliders = homepageSlidersResponse.data;
+  // }
 
-  let reviews: GoogleReviewResponse[] = [];
-  if ("errorMessage" in googleReviewsResponse) {
-    reviews = [];
-  } else {
-    reviews = googleReviewsResponse;
-  }
+  // let reviews: GoogleReviewResponse[] = [];
+  // if ("errorMessage" in googleReviewsResponse) {
+  //   reviews = [];
+  // } else {
+  //   reviews = googleReviewsResponse;
+  // }
+
+  const [
+    featuredToursResponse,
+    categoriesResponse,
+    topToursResponse,
+    blogResponse,
+    destinationsResponse,
+    homepageSlidersResponse,
+    googleReviewsResponse,
+  ] = await Promise.all([
+    getFeaturedTours(),
+    getCategories(),
+    getTopTours(),
+    getBlogs(),
+    getDestinations(),
+    getHomepageSliders(),
+    getReviews(),
+  ]);
+
+  // Extract data from responses
+  const featuredTours =
+    "data" in featuredToursResponse ? featuredToursResponse.data : [];
+  const categories =
+    "data" in categoriesResponse ? categoriesResponse.data : [];
+  const topTours = "data" in topToursResponse ? topToursResponse.data : [];
+  const blogs = "data" in blogResponse ? blogResponse.data : [];
+  const destinations =
+    "data" in destinationsResponse ? destinationsResponse.data : [];
+  const sliders =
+    "data" in homepageSlidersResponse ? homepageSlidersResponse.data : [];
+  const reviews =
+    "errorMessage" in googleReviewsResponse ? [] : googleReviewsResponse;
 
   return (
     <>
