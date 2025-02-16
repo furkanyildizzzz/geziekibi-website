@@ -47,8 +47,8 @@ export default function Testimonials2({
               <div className="box-swiper mt-30">
                 <div className="swiper-container swiper-group-animate swiper-group-journey">
                   <Swiper {...swiperGroupAnimate}>
-                    {reviews.map((review) => (
-                      <SwiperSlide>
+                    {reviews.map((review, i) => (
+                      <SwiperSlide key={i}>
                         <div className="card-testimonial background-card">
                           <div className="card-info">
                             <p className="neutral-500" style={{}}>

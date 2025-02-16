@@ -15,8 +15,8 @@ import { WOW } from "wowjs";
 import WhatsappWidget from "./WhatsappWidget";
 
 interface LayoutProps {
-  headerStyle?: Number;
-  footerStyle?: Number;
+  headerStyle?: number;
+  footerStyle?: number;
   children?: React.ReactNode;
   breadcrumbTitle?: string;
 }

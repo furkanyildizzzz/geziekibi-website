@@ -56,7 +56,7 @@ const OurFeatured1: React.FC<OurFeatured1Props> = ({ tours }) => {
           <div className="box-list-featured">
             <div className="row">
               {tours.map((t) => (
-                <div className="col-lg-4 col-md-6">
+                <div className="col-lg-4 col-md-6" key={t.id}>
                   <div className="card-journey-small background-card">
                     <div className="card-image">
                       <img

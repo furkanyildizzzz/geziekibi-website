@@ -46,7 +46,10 @@ export const TurProgrami = ({
         <div className="card card-body">
           <div className="list-questions">
             {dailyForms.map((f, i) => (
-              <div className={"item-question" + (i % 2 === 1 ? " active" : "")}>
+              <div
+                key={i}
+                className={"item-question" + (i % 2 === 1 ? " active" : "")}
+              >
                 <div className="head-question">
                   <p className="text-md-bold neutral-1000">{i + 1}. Gün</p>
                 </div>

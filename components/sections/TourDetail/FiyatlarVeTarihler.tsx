@@ -48,7 +48,10 @@ export const FiyatlarVeTarihler = ({
         <div className="card card-body">
           <div className="list-questions">
             {dates.map((d, i) => (
-              <div className={"item-question" + (i % 2 === 1 ? " active" : "")}>
+              <div
+                key={d.id}
+                className={"item-question" + (i % 2 === 1 ? " active" : "")}
+              >
                 <div className="head-question">
                   <p className="text-md-bold neutral-1000">
                     {formatDate(d.startDate.toString())} -{" "}

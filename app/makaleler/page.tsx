@@ -167,7 +167,7 @@ export default function BlogGrid2() {
                     <div className="col-lg-5">
                       <ul className="list-posts list-posts-md">
                         {blogs.slice(1, 4).map((blog) => (
-                          <li>
+                          <li key={blog.id}>
                             <div className="card-post">
                               <div className="card-image">
                                 {" "}
@@ -212,7 +212,7 @@ export default function BlogGrid2() {
                     <div className="row">
                       {categories.length > 0 &&
                         categories.map((category) => (
-                          <div className="col-lg-3 col-sm-6">
+                          <div key={category.id} className="col-lg-3 col-sm-6">
                             <div className="card-popular card-top-destination background-card wow fadeInUp">
                               <div className="card-image">
                                 {" "}
@@ -278,7 +278,7 @@ export default function BlogGrid2() {
                   <div className="box-list-news wow fadeInUp">
                     <div className="row">
                       {blogs.map((blog) => (
-                        <div className="col-lg-4 col-md-6 mb-30">
+                        <div key={blog.id} className="col-lg-4 col-md-6 mb-30">
                           <div className="card-news background-card hover-up">
                             <div className="card-image">
                               <label className="label">

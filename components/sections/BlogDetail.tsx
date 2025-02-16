@@ -111,6 +111,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({ blog, blogs }) => {
                     {" "}
                     {blog.tags.map((t) => (
                       <Link
+                        key={blog.id}
                         className="btn btn-label-tag-lg background-2"
                         href={"tag/" + t.seoLink}
                       ></Link>
@@ -207,7 +208,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({ blog, blogs }) => {
                   <div className="swiper-container swiper-group-animate swiper-group-journey">
                     <Swiper {...swiperGroupAnimate}>
                       {blogs.map((b) => (
-                        <SwiperSlide>
+                        <SwiperSlide key={b.id}>
                           <div className="card-news background-card hover-up">
                             <div className="card-image">
                               <label className="label">{b.category.name}</label>

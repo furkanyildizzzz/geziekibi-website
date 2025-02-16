@@ -85,7 +85,7 @@ const Home = async () => {
         <TopCategory1 categories={categories} />
         <Banner />
         <TopRated2 tours={topTours} />
-        <WhyTravelUs />
+        {/* <WhyTravelUs /> */}
         {reviews.length && <Testimonials2 reviews={reviews} />}
         <News2 blogs={blogs} />
       </Layout>

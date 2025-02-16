@@ -1,6 +1,5 @@
 "use client";
 import { SliderResponse } from "@/types/ApiResponseType";
-import { url } from "inspector";
 import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 
@@ -96,8 +95,9 @@ export default function BannerMainSlider({
           sliders
             .map((slider, i) => {
               return (
-                <div className="banner-slide">
+                <div key={i} className="banner-slide">
                   <div
+                    key={slider.id}
                     className="banner-image"
                     style={{
                       background: `url('${slider.image.url}') no-repeat top center`,
@@ -112,7 +112,7 @@ export default function BannerMainSlider({
               );
             })
             .concat(
-              <div className="banner-slide">
+              <div key={sliders.length} className="banner-slide">
                 <div
                   className="banner-image"
                   style={{
@@ -153,13 +153,13 @@ export default function BannerMainSlider({
             sliders
               .map((slider, i) => {
                 return (
-                  <div className="banner-slide">
+                  <div key={i} className="banner-slide">
                     <img src={slider.image.url} alt="Geziekibi" />
                   </div>
                 );
               })
               .concat([
-                <div className="banner-slide">
+                <div className="banner-slide" key={sliders.length}>
                   <img src={sliders[0].image.url} alt="Geziekibi" />
                 </div>,
               ])

@@ -41,7 +41,7 @@ const TopCategory1: React.FC<TopCategory1Props> = ({ categories }) => {
           <div className="box-list-populars">
             <div className="row">
               {categories.map((c) => (
-                <div className="col-lg-3 col-sm-6">
+                <div className="col-lg-3 col-sm-6" key={c.id}>
                   <div className="card-popular background-card hover-up">
                     <div className="card-image">
                       {" "}
