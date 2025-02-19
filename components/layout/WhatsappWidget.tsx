@@ -1,14 +1,23 @@
+import { useEffect, useState } from "react";
+
 const WhatsappWidget = () => {
-  const isAndroid = navigator.userAgent.toLowerCase().indexOf("android") !== -1;
-  const phone_no = "905326551498"; //"905070478291";
+  const [isAndroid, setIsAndroid] = useState(false);
+  const phone_no = "905326551498";
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined") {
+      setIsAndroid(navigator.userAgent.toLowerCase().includes("android"));
+    }
+  }, []);
 
   return (
     <a
-      href="https://wa.me/905070478291?text=Send20%a20%quote" // Replace with your WhatsApp number
+      href={`https://wa.me/${phone_no}?text=Send20%a20%quote`}
       className="whatsapp-widget"
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => {
+      onClick={(e) => {
+        e.preventDefault(); // Prevent default link behavior
         if (!isAndroid) {
           window.open(`https://web.whatsapp.com/send?phone=${phone_no}`);
         } else {
@@ -19,7 +28,7 @@ const WhatsappWidget = () => {
       }}
     >
       <img
-        src="/assets/imgs/whatsapp-icon.png" // Add your WhatsApp icon to public/images/
+        src="/assets/imgs/whatsapp-icon.png"
         alt="WhatsApp Chat"
         width={60}
         height={60}
@@ -27,4 +36,5 @@ const WhatsappWidget = () => {
     </a>
   );
 };
+
 export default WhatsappWidget;

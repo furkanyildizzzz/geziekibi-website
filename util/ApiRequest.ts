@@ -3,7 +3,6 @@ import {
   ApiResponse,
   ApiSuccessResponse,
 } from "../types/ApiResponseType";
-import Cookies from "js-cookie";
 
 export async function apiRequest<T>(
   url: string,
@@ -11,13 +10,10 @@ export async function apiRequest<T>(
   body?: any
 ): Promise<ApiResponse<T>> {
   try {
-    const token = Cookies.get("token");
-
     // Determine if body is FormData
     const isFormData = body instanceof FormData;
     // Set headers, omitting "Content-Type" if body is FormData
     const headers: HeadersInit = {
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(!isFormData ? { "Content-Type": "application/json" } : {}),
     };
     // Prepare body
@@ -49,11 +45,7 @@ export async function apiRequestFile<T>(
   body?: File | File[]
 ): Promise<ApiResponse<T>> {
   try {
-    const token = Cookies.get("token");
-
-    const headers: HeadersInit = {
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    };
+    const headers: HeadersInit = {};
 
     let bodyContent: BodyInit | null = null;
 
