@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const WhatsappWidget = () => {
   const [isAndroid, setIsAndroid] = useState(false);
-  const phone_no = "905326551498";
+  const phone_no = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905323459295"; // Fallback number
 
   useEffect(() => {
     if (typeof navigator !== "undefined") {
@@ -12,7 +12,7 @@ const WhatsappWidget = () => {
 
   return (
     <a
-      href={`https://wa.me/${phone_no}?text=Send20%a20%quote`}
+      href={`https://wa.me/${phone_no}?text=Send%20a%20quote`}
       className="whatsapp-widget"
       target="_blank"
       rel="noopener noreferrer"
@@ -22,7 +22,7 @@ const WhatsappWidget = () => {
           window.open(`https://web.whatsapp.com/send?phone=${phone_no}`);
         } else {
           window.open(
-            `https://api.whatsapp.com/send/?phone=${phone_no}&text=Send20%a20%quote&type=phone_number&app_absent=0`
+            `https://api.whatsapp.com/send/?phone=${phone_no}&text=Send%20a%20quote&type=phone_number&app_absent=0`
           );
         }
       }}
