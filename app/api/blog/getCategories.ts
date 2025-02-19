@@ -12,7 +12,5 @@ export const getCategories = async (): Promise<
     "GET"
   );
 
-  console.log({ categories: response });
-
   return response;
 };

@@ -8,8 +8,5 @@ export const getBlogDetail = async (
     "blog/" + seoLink,
     "GET"
   );
-
-  console.log({ BlogDetail: response });
-
   return response;
 };
