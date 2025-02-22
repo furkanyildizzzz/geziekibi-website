@@ -65,6 +65,7 @@ export enum PageTypeEnum {
   PageCookiePolicy = "page-cookie-policy",
   PageMembershipAgreementPolicy = "page-membership-agreement-policy",
   PageHumanResources = "page-human-resources",
+  PageTourPacketAgreement = "tour-packet-agreement",
 }
 
 export const PageTypeEnumDisplayNames: {
@@ -78,4 +79,5 @@ export const PageTypeEnumDisplayNames: {
   [PageTypeEnum.PageCookiePolicy]: "Çerez Politikası",
   [PageTypeEnum.PageMembershipAgreementPolicy]: "Üyelik Sözleşmesi Politikası",
   [PageTypeEnum.PageHumanResources]: "İnsan Kaynakları",
+  [PageTypeEnum.PageTourPacketAgreement]: "Paket Tur Sözleşmesi",
 };

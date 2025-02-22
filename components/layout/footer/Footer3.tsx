@@ -105,6 +105,11 @@ export default function Footer3() {
                       <li>
                         <Link href="/insan-kaynaklari">İnsan Kaynakları</Link>
                       </li>
+                      <li>
+                        <Link href="/tur-paket-sozlesmesi">
+                          Paket Tur Sözleşmesi
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                   <div className="col-md-3 col-sm-6">
