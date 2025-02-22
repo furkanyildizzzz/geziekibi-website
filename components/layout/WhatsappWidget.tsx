@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const WhatsappWidget = () => {
   const [isAndroid, setIsAndroid] = useState(false);
-  const phone_no = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905323459295"; // Fallback number
+  const phone_no = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905422924444"; // Fallback number
 
   useEffect(() => {
     if (typeof navigator !== "undefined") {

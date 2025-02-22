@@ -36,9 +36,9 @@ export default function Footer3() {
                     <br />
                     <Link
                       className="heading-6 phone-support"
-                      href="/tel:1-800-222-8888"
+                      href="/tel:05422924444"
                     >
-                      1-800-222-8888
+                      05422924444
                     </Link>
                   </div>
                 </div>

@@ -280,6 +280,12 @@ export type SliderResponse = {
   image: CloudinaryImage;
 };
 
+export type GoogleResponse = {
+  rating: number;
+  reviews: GoogleReviewResponse[];
+  url: string;
+};
+
 export type GoogleReviewResponse = {
   author_name: string;
   author_url: string;

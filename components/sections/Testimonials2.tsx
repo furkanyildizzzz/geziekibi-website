@@ -1,16 +1,20 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { swiperGroupAnimate } from "@/util/swiperOption";
-import { GoogleReviewResponse } from "@/types/ApiResponseType";
+import { GoogleResponse } from "@/types/ApiResponseType";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function Testimonials2({
-  reviews,
+  googleResponse,
 }: {
-  reviews: GoogleReviewResponse[];
+  googleResponse: GoogleResponse;
 }) {
   const router = useRouter();
+  const openInNewTab = () => {
+    const url = googleResponse.url; // veya sabit bir URL
+    window.open(url, "_blank"); // Yeni sekmede aç
+  };
   return (
     <>
       <section className="section-box box-testimonials-2 background-body">
@@ -19,9 +23,12 @@ export default function Testimonials2({
             className="box-author-testimonials"
             style={{ cursor: "pointer" }}
             onClick={() => {
-              router.push(
-                "https://www.google.com/search?sa=X&sca_esv=aac09e88d3bc5d88&rlz=1C5GCEM_enTR1109TR1110&tbm=lcl&q=Geziekibi+Turizm+Seyahat+Acentas%C4%B1+Yorumlar&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDOztDQ1MbWwNDWyNDEyNzaxNNnAyPiKUds9tSozNTszKVMhpLQosypXITi1MjEjsUTBMTk1rySx-MhGhcj8otLcnMSiRaykqAYAN5EkB3cAAAA&rldimm=16699545895294273494&hl=tr-TR&ved=2ahUKEwiNrYqanLSLAxUwRPEDHXUBHFAQ9fQKegQIPxAF&cshid=1739022683170825&biw=1512&bih=749&dpr=2#lkt=LocalPoiReviews"
-              );
+              // router.push(
+              //   googleResponse.url
+              //   // "https://www.google.com/search?sa=X&sca_esv=aac09e88d3bc5d88&rlz=1C5GCEM_enTR1109TR1110&tbm=lcl&q=Geziekibi+Turizm+Seyahat+Acentas%C4%B1+Yorumlar&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDOztDQ1MbWwNDWyNDEyNzaxNNnAyPiKUds9tSozNTszKVMhpLQosypXITi1MjEjsUTBMTk1rySx-MhGhcj8otLcnMSiRaykqAYAN5EkB3cAAAA&rldimm=16699545895294273494&hl=tr-TR&ved=2ahUKEwiNrYqanLSLAxUwRPEDHXUBHFAQ9fQKegQIPxAF&cshid=1739022683170825&biw=1512&bih=749&dpr=2#lkt=LocalPoiReviews"
+              // );
+
+              openInNewTab();
             }}
           >
             {" "}
@@ -37,9 +44,24 @@ export default function Testimonials2({
               src="/assets/imgs/page/homepage1/testimonial3.png"
               alt="Travila"
             />
-            Yorumlar
+            <div className="card-rate" style={{ marginLeft: "15px" }}>
+              {/* <span style={{ marginLeft: "15px" }}>Google Yorumlar</span> */}
+              {Array.from({ length: googleResponse.rating }, (_, index) => (
+                <img
+                  key={index}
+                  src="/assets/imgs/template/icons/star.svg"
+                  alt="Travila"
+                />
+              ))}
+              <span style={{ marginLeft: "15px" }}>
+                {googleResponse.rating}{" "}
+              </span>
+            </div>
           </div>
-          <h2 className="mt-8 mb-25 neutral-1000">Bizi tercih edenler ...</h2>
+          <h2 className="mt-8 mb-25 neutral-1000">Google Yorumlarınız ...</h2>
+          <h6 className="mt-8 mb-25 neutral-1000">
+            Bizi Değerlendirin <Link href={googleResponse.url}>{"->"}</Link>{" "}
+          </h6>
         </div>
         <div className="block-testimonials">
           <div className="container-testimonials">
@@ -47,7 +69,7 @@ export default function Testimonials2({
               <div className="box-swiper mt-30">
                 <div className="swiper-container swiper-group-animate swiper-group-journey">
                   <Swiper {...swiperGroupAnimate}>
-                    {reviews.map((review, i) => (
+                    {googleResponse.reviews.map((review, i) => (
                       <SwiperSlide key={i}>
                         <div className="card-testimonial background-card">
                           <div className="card-info">
@@ -98,231 +120,6 @@ export default function Testimonials2({
                         </div>
                       </SwiperSlide>
                     ))}
-
-                    {/* <SwiperSlide>
-                      <div className="card-testimonial background-card">
-                        <div className="card-info">
-                          <p className="text-xl-bold card-title neutral-1000">
-                            The best booking system
-                          </p>
-                          <p className="neutral-500">
-                            I've been using the hotel booking system for several
-                            years now, and it's become my go-to platform for
-                            planning my trips. The interface is user-friendly,
-                            and I appreciate the detailed information and
-                            real-time availability of hotels.
-                          </p>
-                        </div>
-                        <div className="card-top">
-                          <div className="card-author">
-                            <div className="card-image">
-                              {" "}
-                              <img
-                                src="/assets/imgs/page/homepage1/author.png"
-                                alt="Travila"
-                              />
-                            </div>
-                            <div className="card-info">
-                              <p className="text-lg-bold neutral-1000">
-                                Sara Mohamed
-                              </p>
-                              <p className="text-sm neutral-1000">Jakatar</p>
-                            </div>
-                          </div>
-                          <div className="card-rate">
-                            {" "}
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="card-testimonial background-card">
-                        <div className="card-info">
-                          <p className="text-xl-bold card-title neutral-1000">
-                            The best booking system
-                          </p>
-                          <p className="neutral-500">
-                            I've been using the hotel booking system for several
-                            years now, and it's become my go-to platform for
-                            planning my trips. The interface is user-friendly,
-                            and I appreciate the detailed information and
-                            real-time availability of hotels.
-                          </p>
-                        </div>
-                        <div className="card-top">
-                          <div className="card-author">
-                            <div className="card-image">
-                              {" "}
-                              <img
-                                src="/assets/imgs/page/homepage1/author2.png"
-                                alt="Travila"
-                              />
-                            </div>
-                            <div className="card-info">
-                              <p className="text-lg-bold neutral-1000">
-                                Atend John
-                              </p>
-                              <p className="text-sm neutral-1000">Califonia</p>
-                            </div>
-                          </div>
-                          <div className="card-rate">
-                            {" "}
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="card-testimonial background-card">
-                        <div className="card-info">
-                          <p className="text-xl-bold card-title neutral-1000">
-                            The best booking system
-                          </p>
-                          <p className="neutral-500">
-                            I've been using the hotel booking system for several
-                            years now, and it's become my go-to platform for
-                            planning my trips. The interface is user-friendly,
-                            and I appreciate the detailed information and
-                            real-time availability of hotels.
-                          </p>
-                        </div>
-                        <div className="card-top">
-                          <div className="card-author">
-                            <div className="card-image">
-                              {" "}
-                              <img
-                                src="/assets/imgs/page/homepage1/author.png"
-                                alt="Travila"
-                              />
-                            </div>
-                            <div className="card-info">
-                              <p className="text-lg-bold neutral-1000">
-                                Sara Mohamed
-                              </p>
-                              <p className="text-sm neutral-1000">Jakatar</p>
-                            </div>
-                          </div>
-                          <div className="card-rate">
-                            {" "}
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="card-testimonial background-card">
-                        <div className="card-info">
-                          <p className="text-xl-bold card-title neutral-1000">
-                            The best booking system
-                          </p>
-                          <p className="neutral-500">
-                            I've been using the hotel booking system for several
-                            years now, and it's become my go-to platform for
-                            planning my trips. The interface is user-friendly,
-                            and I appreciate the detailed information and
-                            real-time availability of hotels.
-                          </p>
-                        </div>
-                        <div className="card-top">
-                          <div className="card-author">
-                            <div className="card-image">
-                              {" "}
-                              <img
-                                src="/assets/imgs/page/homepage1/author2.png"
-                                alt="Travila"
-                              />
-                            </div>
-                            <div className="card-info">
-                              <p className="text-lg-bold neutral-1000">
-                                Sara Mohamed
-                              </p>
-                              <p className="text-sm neutral-1000">Jakatar</p>
-                            </div>
-                          </div>
-                          <div className="card-rate">
-                            {" "}
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                            <img
-                              src="/assets/imgs/template/icons/star.svg"
-                              alt="Travila"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide> */}
                   </Swiper>
                 </div>
               </div>

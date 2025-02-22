@@ -12,15 +12,15 @@ import { getTopTours } from "@/app/api/homepage/getTopTours";
 import { getBlogs } from "@/app/api/homepage/getBlogs";
 import { getDestinations } from "@/app/api/homepage/getDestinations";
 import { getHomepageSliders } from "@/app/api/homepage/getHomepageSliders";
-import { getReviews } from "@/app/api/googleApis/getReviews";
 import {
   CategoryListSuccessResponse,
   FeaturedTourListSuccessResponse,
-  GoogleReviewResponse,
+  GoogleResponse,
   HomepageBlogListSuccessResponse,
   SliderResponse,
   TourDailyPath,
 } from "@/types/ApiResponseType";
+import { getGoogleApiResponse } from "./api/googleApis/getGoogleApiResponse";
 
 export default async function Home() {
   const [
@@ -30,7 +30,7 @@ export default async function Home() {
     blogResponse,
     destinationsResponse,
     homepageSlidersResponse,
-    googleReviewsResponse,
+    ggoogleApiResponse,
   ] = await Promise.all([
     getFeaturedTours(),
     getCategories(),
@@ -38,7 +38,7 @@ export default async function Home() {
     getBlogs(),
     getDestinations(),
     getHomepageSliders(),
-    getReviews(),
+    getGoogleApiResponse(),
   ]);
 
   const featuredTours: FeaturedTourListSuccessResponse[] =
@@ -53,8 +53,10 @@ export default async function Home() {
     "data" in destinationsResponse ? destinationsResponse.data : [];
   const sliders: SliderResponse[] =
     "data" in homepageSlidersResponse ? homepageSlidersResponse.data : [];
-  const reviews: GoogleReviewResponse[] =
-    "errorMessage" in googleReviewsResponse ? [] : googleReviewsResponse;
+  const googleResponse: GoogleResponse =
+    "errorMessage" in ggoogleApiResponse
+      ? ({} as GoogleResponse)
+      : ggoogleApiResponse;
 
   return (
     <Layout headerStyle={1} footerStyle={5}>
@@ -63,7 +65,7 @@ export default async function Home() {
       <TopCategory1 categories={categories} />
       <Banner />
       <TopRated2 tours={topTours} />
-      {reviews.length > 0 && <Testimonials2 reviews={reviews} />}
+      {googleResponse && <Testimonials2 googleResponse={googleResponse} />}
       <News2 blogs={blogs} />
     </Layout>
   );
