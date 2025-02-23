@@ -38,7 +38,7 @@ export default function Footer3() {
                       className="heading-6 phone-support"
                       href="/tel:05422924444"
                     >
-                      05422924444
+                      0542 292 44 44
                     </Link>
                   </div>
                 </div>
