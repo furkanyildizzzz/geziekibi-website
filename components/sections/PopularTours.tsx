@@ -25,7 +25,7 @@ const PopularTours = () => {
         <ul>
           {tours.length > 0 &&
             tours.map((tour) => (
-              <li>
+              <li key={tour.id}>
                 <div className="card-post">
                   <div className="card-image">
                     {" "}

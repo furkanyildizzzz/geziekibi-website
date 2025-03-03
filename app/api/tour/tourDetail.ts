@@ -9,7 +9,5 @@ export const getTourDetail = async (
     "GET"
   );
 
-  console.log({ TourDetail: response });
-
   return response;
 };

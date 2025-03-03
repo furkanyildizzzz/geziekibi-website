@@ -16445,3 +16445,14 @@ h2 span {
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
+.whatsapp-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-widget:hover {
+  transform: scale(1.1);
+}

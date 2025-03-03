@@ -348,7 +348,7 @@ export default function Contact() {
                         {/* Submit */}
                         <div className="col-lg-12">
                           <button type="submit" className="btn btn-book">
-                            Send Message
+                            Mesaj Gönder
                           </button>
                         </div>
                       </div>

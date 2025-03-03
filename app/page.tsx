@@ -6,12 +6,16 @@ import OurFeatured1 from "@/components/sections/OurFeatured1";
 import Testimonials2 from "@/components/sections/Testimonials2";
 import TopCategory1 from "@/components/sections/TopCategory1";
 import TopRated2 from "@/components/sections/TopRated2";
-import WhyTravelUs from "@/components/sections/WhyTravelUs";
-import { getFeaturedTours } from "./api/homepage/getFeaturedTours";
+import { getFeaturedTours } from "@/app/api/homepage/getFeaturedTours";
+import { getCategories } from "@/app/api/homepage/getCategories";
+import { getTopTours } from "@/app/api/homepage/getTopTours";
+import { getBlogs } from "@/app/api/homepage/getBlogs";
+import { getDestinations } from "@/app/api/homepage/getDestinations";
+import { getHomepageSliders } from "@/app/api/homepage/getHomepageSliders";
 import {
   CategoryListSuccessResponse,
   FeaturedTourListSuccessResponse,
-  GoogleReviewResponse,
+  GoogleResponse,
   HomepageBlogListSuccessResponse,
   SliderResponse,
   TourDailyPath,
@@ -78,19 +82,14 @@ const Home = async () => {
   // }
 
   return (
-    <>
-      <Layout headerStyle={1} footerStyle={5}>
-        <BannerHome1 destinations={destinations} sliders={sliders} />
-        <OurFeatured1 tours={featuredTours} />
-        <TopCategory1 categories={categories} />
-        <Banner />
-        <TopRated2 tours={topTours} />
-        <WhyTravelUs />
-        {reviews.length && <Testimonials2 reviews={reviews} />}
-        <News2 blogs={blogs} />
-      </Layout>
-    </>
+    <Layout headerStyle={1} footerStyle={5}>
+      <BannerHome1 destinations={destinations} sliders={sliders} />
+      <OurFeatured1 tours={featuredTours} />
+      <TopCategory1 categories={categories} />
+      <Banner />
+      <TopRated2 tours={topTours} />
+      {googleResponse && <Testimonials2 googleResponse={googleResponse} />}
+      <News2 blogs={blogs} />
+    </Layout>
   );
-};
-
-export default Home;
+}

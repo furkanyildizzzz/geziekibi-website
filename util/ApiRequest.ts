@@ -3,7 +3,6 @@ import {
   ApiResponse,
   ApiSuccessResponse,
 } from "../types/ApiResponseType";
-import Cookies from "js-cookie";
 
 export async function apiRequest<T>(
   url: string,
@@ -11,24 +10,23 @@ export async function apiRequest<T>(
   body?: any
 ): Promise<ApiResponse<T>> {
   try {
-    const token = Cookies.get("token");
-
     // Determine if body is FormData
     const isFormData = body instanceof FormData;
     // Set headers, omitting "Content-Type" if body is FormData
     const headers: HeadersInit = {
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(!isFormData ? { "Content-Type": "application/json" } : {}),
     };
     // Prepare body
     const requestBody = isFormData ? body : JSON.stringify(body);
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/website/${url}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/${url}`,
       {
         method,
         headers,
         body: requestBody,
         cache: "no-store",
+        credentials: "include",
+        redirect: "manual", // Redirect'leri engelle
       }
     );
 
@@ -47,11 +45,7 @@ export async function apiRequestFile<T>(
   body?: File | File[]
 ): Promise<ApiResponse<T>> {
   try {
-    const token = Cookies.get("token");
-
-    const headers: HeadersInit = {
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    };
+    const headers: HeadersInit = {};
 
     let bodyContent: BodyInit | null = null;
 
@@ -68,6 +62,8 @@ export async function apiRequestFile<T>(
       method,
       headers,
       body: bodyContent,
+      credentials: "include",
+      redirect: "manual", // Redirect'leri engelle
     });
 
     const result = await processApiResponse<T>(response);

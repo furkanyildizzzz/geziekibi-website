@@ -7,11 +7,12 @@ import { getBlogDetail } from "@/app/api/blog/blogDetail";
 import BlogDetail from "@/components/sections/BlogDetail";
 import { getBlogs } from "@/app/api/homepage/getBlogs";
 
-export default async function Blog({
-  params: { seoLink },
-}: {
-  params: { seoLink: string };
-}) {
+type tParams = Promise<{ seoLink: string }>;
+
+// `params`'ı doğru şekilde alıyoruz
+export default async function Blog({ params }: { params: tParams }) {
+  const { seoLink }: { seoLink: string } = await params;
+
   const blogsRequest = getBlogs();
   const blogDetailRequest = getBlogDetail(seoLink);
 

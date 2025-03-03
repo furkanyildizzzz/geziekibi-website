@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import "/public/assets/css/style.css";
 import type { Metadata } from "next";

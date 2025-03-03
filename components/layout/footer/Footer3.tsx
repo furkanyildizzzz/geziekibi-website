@@ -14,12 +14,14 @@ export default function Footer3() {
                       alt="Travila"
                       src="/assets/imgs/logo-80.png"
                       //   src="/assets/imgs/template/logo-footer.svg"
+                      style={{ width: "120px", height: "auto" }}
                     />
                     <img
                       className="light-mode"
                       alt="Travila"
                       src="/assets/imgs/logo-80.png"
                       //   src="/assets/imgs/template/logo-footer-w.svg"
+                      style={{ width: "120px", height: "auto" }}
                     />
                   </Link>
                   <div className="box-info-contact mt-0">
@@ -34,9 +36,9 @@ export default function Footer3() {
                     <br />
                     <Link
                       className="heading-6 phone-support"
-                      href="/tel:1-800-222-8888"
+                      href="/tel:05422924444"
                     >
-                      1-800-222-8888
+                      0542 292 44 44
                     </Link>
                   </div>
                 </div>
@@ -102,6 +104,11 @@ export default function Footer3() {
                       </li>{" "}
                       <li>
                         <Link href="/insan-kaynaklari">İnsan Kaynakları</Link>
+                      </li>
+                      <li>
+                        <Link href="/tur-paket-sozlesmesi">
+                          Paket Tur Sözleşmesi
+                        </Link>
                       </li>
                     </ul>
                   </div>

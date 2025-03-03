@@ -131,7 +131,10 @@ export default function FAQ() {
                   <div className="accordion" id="accordionFAQ">
                     {FAQs.length > 0 &&
                       FAQs.sort((a, b) => a.Order - b.Order).map((faq) => (
-                        <div className="accordion-item wow fadeInUp">
+                        <div
+                          key={faq.id}
+                          className="accordion-item wow fadeInUp"
+                        >
                           <h5
                             className="accordion-header"
                             id={"heading" + faq.id}

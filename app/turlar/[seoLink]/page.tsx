@@ -9,11 +9,12 @@ export const metadata: Metadata = {
   description: "Keyfinizin kahyasıyız",
 };
 
-export default async function Tur({
-  params: { seoLink },
-}: {
-  params: { seoLink: string };
-}) {
+type tParams = Promise<{ seoLink: string }>;
+
+// `params`'ı doğru şekilde alıyoruz
+export default async function Tur({ params }: { params: tParams }) {
+  const { seoLink }: { seoLink: string } = await params;
+
   const response = await getTourDetail(seoLink);
 
   let tourData = {} as TourSuccessResponse;

@@ -12,10 +12,11 @@ import Sidebar from "./Sidebar";
 import Footer3 from "./footer/Footer3";
 import Header1 from "./header/Header1";
 import { WOW } from "wowjs";
+import WhatsappWidget from "./WhatsappWidget";
 
 interface LayoutProps {
-  headerStyle?: Number;
-  footerStyle?: Number;
+  headerStyle?: number;
+  footerStyle?: number;
   children?: React.ReactNode;
   breadcrumbTitle?: string;
 }
@@ -124,6 +125,9 @@ export default function Layout({
         isLogin={isLogin}
         handleLogin={handleLogin}
       />
+
+      {/* WhatsApp Widget */}
+      <WhatsappWidget />
 
       <BackToTop target="top" />
     </>
