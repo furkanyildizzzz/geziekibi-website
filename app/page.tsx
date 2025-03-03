@@ -30,7 +30,7 @@ const Home = async () => {
   const blogsRequest = getBlogs();
   const destinationsRequest = getDestinations();
   const homepageSlidersRequest = getHomepageSliders();
-  const googleReviews = getReviews();
+  // const googleReviews = getReviews();
 
   const featuredToursResponse = await featuredToursRequest;
   const categoriesResponse = await categoriesRequest;
@@ -38,7 +38,7 @@ const Home = async () => {
   const blogResponse = await blogsRequest;
   const destinationsResponse = await destinationsRequest;
   const homepageSlidersResponse = await homepageSlidersRequest;
-  const googleReviewsResponse = await googleReviews;
+  // const googleReviewsResponse = await googleReviews;
 
   let featuredTours: FeaturedTourListSuccessResponse[] = [];
   if ("data" in featuredToursResponse) {
@@ -71,11 +71,11 @@ const Home = async () => {
   }
 
   let reviews: GoogleReviewResponse[] = [];
-  if ("errorMessage" in googleReviewsResponse) {
-    reviews = [];
-  } else {
-    reviews = googleReviewsResponse;
-  }
+  // if ("errorMessage" in googleReviewsResponse) {
+  //   reviews = [];
+  // } else {
+  //   reviews = googleReviewsResponse;
+  // }
 
   return (
     <>
