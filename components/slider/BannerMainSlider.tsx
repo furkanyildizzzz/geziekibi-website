@@ -3,6 +3,13 @@ import { SliderResponse } from "@/types/ApiResponseType";
 import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 
+const staticSlides = [
+  "/assets/imgs/banner-main-slider/geziekibi-slider-1-1920-769.jpg",
+  "/assets/imgs/banner-main-slider/geziekibi-slider-2-1920-769.jpg",
+  "/assets/imgs/banner-main-slider/geziekibi-slider-3-1920-769.jpg",
+  "/assets/imgs/banner-main-slider/geziekibi-slider-1-1920-769.jpg",
+];
+
 const SlickArrowLeft = ({ currentSlide, slideCount, ...props }: any) => (
   <button
     {...props}
@@ -80,7 +87,7 @@ export default function BannerMainSlider({
   };
 
   const settingsThumbs = {
-    slidesToShow: sliders?.length ?? 3,
+    slidesToShow: sliders && sliders.length > 0 ? sliders.length : staticSlides.length,
     slidesToScroll: 1,
     dots: false,
     focusOnSelect: true,
@@ -127,20 +134,22 @@ export default function BannerMainSlider({
               </div>
             )
         ) : (
-          <>
-            <div className="banner-slide">
-              <div className="banner-image banner-image-1"></div>
+          staticSlides.map((src, index) => (
+            <div key={index} className="banner-slide">
+              <div
+                key={index + 4}
+                className="banner-image"
+                style={{
+                  background: `url('${src}') no-repeat top center`,
+                  backgroundPosition: "top center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  minHeight: "769px",
+                  paddingBottom: "250px",
+                }}
+              />
             </div>
-            <div className="banner-slide">
-              <div className="banner-image banner-image-2"></div>
-            </div>
-            <div className="banner-slide">
-              <div className="banner-image banner-image-3"></div>
-            </div>
-            <div className="banner-slide">
-              <div className="banner-image banner-image-1"></div>
-            </div>
-          </>
+          ))
         )}
       </Slider>
       <div className="slider-thumnail">
@@ -149,48 +158,20 @@ export default function BannerMainSlider({
           ref={slider2}
           className="slider-nav-thumbnails"
         >
-          {sliders && sliders.length > 0 ? (
-            sliders
-              .map((slider, i) => {
-                return (
-                  <div key={i} className="banner-slide">
-                    <img src={slider.image.url} alt="Geziekibi" />
-                  </div>
-                );
-              })
-              .concat([
-                <div className="banner-slide" key={sliders.length}>
-                  <img src={sliders[0].image.url} alt="Geziekibi" />
-                </div>,
-              ])
+          {sliders?.length ? (
+            sliders.map((slider, i) => (
+              <div key={i} className="banner-slide">
+                <img src={slider.image.url} alt="Geziekibi" />
+              </div>
+            ))
           ) : (
-            <>
-              <div className="banner-slide">
-                <img
-                  src="/assets/imgs/banner-main-slider/geziekibi-slider-1.jpg"
-                  alt="Geziekibi"
-                />
+            staticSlides.map((src, index) => (
+              <div className="banner-slide" key={index}>
+                <img src={src} alt="Geziekibi" />
               </div>
-              <div className="banner-slide">
-                <img
-                  src="/assets/imgs/banner-main-slider/geziekibi-slider-2.jpg"
-                  alt="Geziekibi"
-                />
-              </div>
-              <div className="banner-slide">
-                <img
-                  src="/assets/imgs/banner-main-slider/geziekibi-slider-3.jpg"
-                  alt="Geziekibi"
-                />
-              </div>
-              <div className="banner-slide">
-                <img
-                  src="/assets/imgs/banner-main-slider/geziekibi-slider-1.jpg"
-                  alt="Geziekibi"
-                />
-              </div>
-            </>
+            ))
           )}
+
         </Slider>
       </div>
     </>
