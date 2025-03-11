@@ -20,12 +20,7 @@ import {
   SliderResponse,
   TourDailyPath,
 } from "@/types/ApiResponseType";
-import { getCategories } from "./api/homepage/getCategories";
-import { getTopTours } from "./api/homepage/getTopTours";
-import { getBlogs } from "./api/homepage/getBlogs";
-import { getDestinations } from "./api/homepage/getDestinations";
-import { getHomepageSliders } from "./api/homepage/getHomepageSliders";
-import { getReviews } from "./api/googleApis/getReviews";
+import { getGoogleApiResponse } from "./api/googleApis/getGoogleApiResponse";
 
 const Home = async () => {
   const featuredToursRequest = getFeaturedTours();
@@ -34,7 +29,7 @@ const Home = async () => {
   const blogsRequest = getBlogs();
   const destinationsRequest = getDestinations();
   const homepageSlidersRequest = getHomepageSliders();
-  // const googleReviews = getReviews();
+  const googleApiRequest = getGoogleApiResponse();
 
   const featuredToursResponse = await featuredToursRequest;
   const categoriesResponse = await categoriesRequest;
@@ -42,7 +37,7 @@ const Home = async () => {
   const blogResponse = await blogsRequest;
   const destinationsResponse = await destinationsRequest;
   const homepageSlidersResponse = await homepageSlidersRequest;
-  // const googleReviewsResponse = await googleReviews;
+  const googleApiResponse = await googleApiRequest;
 
   let featuredTours: FeaturedTourListSuccessResponse[] = [];
   if ("data" in featuredToursResponse) {
@@ -74,12 +69,12 @@ const Home = async () => {
     sliders = homepageSlidersResponse.data;
   }
 
-  let reviews: GoogleReviewResponse[] = [];
-  // if ("errorMessage" in googleReviewsResponse) {
-  //   reviews = [];
-  // } else {
-  //   reviews = googleReviewsResponse;
-  // }
+  let googleResponse: GoogleResponse | null;
+  if ("errorMessage" in googleApiResponse) {
+    googleResponse = null
+  } else {
+    googleResponse = googleApiResponse;
+  }
 
   return (
     <Layout headerStyle={1} footerStyle={5}>
@@ -93,3 +88,4 @@ const Home = async () => {
     </Layout>
   );
 }
+export default Home

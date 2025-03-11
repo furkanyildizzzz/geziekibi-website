@@ -4,9 +4,9 @@ import formatDate from "@/util/formatDate";
 import React, { useState } from "react";
 
 export const FiyatlarVeTarihler = ({
-  dates,
+  tourDates,
 }: {
-  dates: TourDateSuccessResponse[];
+  tourDates: TourDateSuccessResponse[];
 }) => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -47,7 +47,7 @@ export const FiyatlarVeTarihler = ({
       >
         <div className="card card-body">
           <div className="list-questions">
-            {dates.map((d, i) => (
+            {tourDates.map((d, i) => (
               <div
                 key={d.id}
                 className={"item-question" + (i % 2 === 1 ? " active" : "")}

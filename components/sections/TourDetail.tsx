@@ -283,7 +283,7 @@ const TourDetail: React.FC<TourDetailProps> = ({ tour }) => {
                     <GenelBakis body={tour.body} />
                     <TurProgrami dailyForms={tour.dailyForms} />
                     <Hizmetler services={tour.tourServices} />
-                    <FiyatlarVeTarihler dates={tour.dates} />
+                    <FiyatlarVeTarihler tourDates={tour.tourDates} />
                     <OnemliBilgiler importantNotes={tour.importantNotes} />
                     {/* <SorularVeCevaplar />
                     <DegerlendirmeVeYorumlar /> */}

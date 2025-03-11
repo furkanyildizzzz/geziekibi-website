@@ -15,7 +15,14 @@ export const getGoogleApiResponse = async (): Promise<
       const text = await response.text();
       if (text) {
         try {
-          console.log({ text: JSON.parse(text) });
+          const parsedText = JSON.parse(text);
+          
+          if("error_message" in parsedText){
+            return {
+              errorMessage: parsedText.error_message,
+            } as ApiErrorResponse
+          }
+
           return JSON.parse(text).result as GoogleResponse;
         } catch (error) {
           // throw new Error("Invalid JSON response from server.");

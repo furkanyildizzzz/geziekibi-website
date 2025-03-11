@@ -143,7 +143,7 @@ export type TourSuccessResponse = {
   tags: TagSuccessResponse[];
   tourServices: TourService[];
   dailyForms: TourDailyForm[];
-  dates: TourDateSuccessResponse[];
+  tourDates: TourDateSuccessResponse[];
   slugType: "tour";
   importantNotes: string;
 };

@@ -180,6 +180,8 @@ const useTourFilter = (toursData: Tour[]) => {
   };
 
   const handleClearFilters = () => {
+    console.log("handleClearFilters")
+    console.log({toursData})
     setFilter({
       names: [],
       activities: [],
