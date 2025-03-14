@@ -21,7 +21,8 @@ export default async function Tur({ params }: { params: tParams }) {
   if ("data" in response) {
     tourData = response.data;
     metadata.title = tourData.title;
-  } else if (response.errorType === "NOT FOUND") {
+  } else if ('errorMessage' in response) {
+    console.log({response})
     notFound();
   }
 

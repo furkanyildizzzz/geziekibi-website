@@ -6,12 +6,16 @@ import { PageTypeEnum, PageTypeEnumDisplayNames } from "@/lib/enums";
 import { StaticPageSuccessResponse } from "@/types/ApiResponseType";
 import { swiperGroupAnimate } from "@/util/swiperOption";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 export default function StaticPage({
   pageData,
 }: {
   pageData: StaticPageSuccessResponse;
 }) {
+
+  if(!pageData) notFound()
+
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
