@@ -4,7 +4,9 @@ export default function ByActivities({
   uniqueActivities,
   filter,
   handleCheckboxChange,
+  category
 }: any) {
+  console.log(category)
   return (
     <>
       <div className="box-collapse scrollFilter">
@@ -14,7 +16,7 @@ export default function ByActivities({
               <label className="cb-container">
                 <input
                   type="checkbox"
-                  checked={filter.activities.includes(activity.name)}
+                  checked={filter.activities.includes(activity.name) || activity.id == category?.id}
                   onChange={handleCheckboxChange("activities", [
                     activity.name,
                     ...activity.subCategories.map((s) => s.name),

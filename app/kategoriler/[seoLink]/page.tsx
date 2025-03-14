@@ -1,9 +1,11 @@
-import { CategoryListSuccessResponse } from "@/types/ApiResponseType";
+import { CategoryListSuccessResponse, FeaturedTourListSuccessResponse } from "@/types/ApiResponseType";
 import TourCategory from "@/components/sections/TourCategory";
 import { getCategory } from "@/app/api/tour/getCategory";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Head from "next/head";
+import TourList from "@/components/sections/TourList";
+import { getToursByCategoryId } from "@/app/api/tour/getToursByCategory";
 
 type tParams = Promise<{ seoLink: string }>;
 
@@ -21,6 +23,15 @@ export default async function Category({ params }: { params: tParams }) {
     notFound();
   }
 
+  const toursResponse = await getToursByCategoryId(category.id);
+
+  let tourList: FeaturedTourListSuccessResponse[] = [];
+  if ("data" in toursResponse) {
+    tourList = toursResponse.data;
+  }
+
+  console.log({ tourList })
+
   return (
     <>
       <Head>
@@ -30,7 +41,7 @@ export default async function Category({ params }: { params: tParams }) {
           content={category.description || "Geziekibi"}
         />
       </Head>
-      <TourCategory category={category} />
+      <TourList tourList={tourList} category={category} />
     </>
   );
 }

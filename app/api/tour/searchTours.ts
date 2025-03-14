@@ -8,6 +8,7 @@ import { apiRequest } from "@/util/ApiRequest";
 export interface SearchParams {
   startDate: Date | null;
   destination: TourDailyPath | null;
+  categoryId: number | null;
 }
 
 export const searchTours = async (
