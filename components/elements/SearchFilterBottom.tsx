@@ -36,7 +36,7 @@ const SearchFilterBottom: React.FC<SearchFilterBottomProps> = ({
   const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log({ startDate, destination });
-    await handleSearch({ startDate, destination });
+    await handleSearch({ startDate, destination, categoryId: null });
   };
 
   useEffect(() => {

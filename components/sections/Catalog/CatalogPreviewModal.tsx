@@ -113,7 +113,7 @@ const CatalogPreviewModal: React.FC<CatalogModalInterfaceType> = ({
             <div
               className="flip-book-container"
               style={{ height: "500px" }}
-              // @ts-ignore
+              // @ts-expect-error: Katalog bulunamadı
               src={catalog?.url}
             ></div>
           </Col>
