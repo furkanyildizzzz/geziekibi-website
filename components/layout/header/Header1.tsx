@@ -50,6 +50,9 @@ export default function Header1({
                     <li className="">
                       <Link href="/makaleler">Makaleler</Link>
                     </li>
+                    <li className="">
+                      <Link href="/kataloglar">Kataloglar</Link>
+                    </li>
                     {/* <li className="">
                       <Link href="/biletler">Biletler</Link>
                     </li> */}

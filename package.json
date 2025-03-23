@@ -25,6 +25,7 @@
     "react-slick": "^0.30.2",
     "react-slider": "^2.0.6",
     "react-toastify": "^11.0.2",
+    "reactstrap": "^9.2.3",
     "redux": "^5.0.1",
     "sass": "^1.77.0",
     "slick-carousel": "^1.8.1",
