@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.4.0",
     "@types/redux": "^3.6.31",
     "js-cookie": "^3.0.5",
+    "lottie-react": "^2.4.1",
     "next": "15.0.3",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.2",
