@@ -103,8 +103,11 @@ const OurFeatured1: React.FC<OurFeatured1Props> = ({ tours }) => {
                         <div className="endtime">
                           <div className="card-price">
                             <h6 className="heading-6 neutral-1000">
-                              {t.pricePerPerson}{" "}
-                              {CurrencyDisplayNames[t.currency]}
+                              {t.pricePerPerson > 0
+                                ? `${t.pricePerPerson} ${
+                                    CurrencyDisplayNames[t.currency]
+                                  }`
+                                : "-"}
                             </h6>
                             <p className="text-md-medium neutral-500">/ kişi</p>
                           </div>

@@ -55,7 +55,7 @@ const TourList = ({ tourList, category }: TourListParams) => {
   const fetchTours = async () => {
     const toursData = tourList.map((tour) => ({
       ...tour,
-      price: tour.pricePerPerson,
+      price: tour.pricePerPerson ?? 0,
       currency: tour.currency,
       name: tour.title,
       activities: tour.category.name,
@@ -65,6 +65,8 @@ const TourList = ({ tourList, category }: TourListParams) => {
       // groupSize: parseInt(tour.groupSize as unknown as string),
       // rating: parseFloat(tour.rating as string),
     }));
+    console.log({ toursData });
+
     setTours(toursData);
 
     if (toursData.length > 0) {
@@ -287,8 +289,11 @@ const TourList = ({ tourList, category }: TourListParams) => {
                                 <div className="endtime">
                                   <div className="card-price">
                                     <h6 className="heading-6 neutral-1000">
-                                      {CurrencyDisplayNames[tour.currency]}{" "}
-                                      {tour.price}
+                                      {tour.price !== 0
+                                        ? `${
+                                            CurrencyDisplayNames[tour.currency]
+                                          } ${tour.price}`
+                                        : "-"}
                                     </h6>
                                   </div>
                                   <div className="card-button">
@@ -386,8 +391,11 @@ const TourList = ({ tourList, category }: TourListParams) => {
                                   {tour.title}
                                 </Link>
                                 <span className="price text-sm-bold neutral-1000">
-                                  {tour.pricePerPerson}{" "}
-                                  {CurrencyDisplayNames[tour.currency]}
+                                  {tour.pricePerPerson > 0
+                                    ? `${tour.pricePerPerson} ${
+                                        CurrencyDisplayNames[tour.currency]
+                                      }`
+                                    : "-"}
                                 </span>
                               </div>
                             </div>

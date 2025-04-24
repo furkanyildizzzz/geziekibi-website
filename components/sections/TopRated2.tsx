@@ -65,7 +65,7 @@ const TopRated2: React.FC<TopRated2Props> = ({ tours }) => {
                     <div className="card-journey-small background-card">
                       <div className="card-image">
                         {" "}
-                        <Link className="wish" href="#">
+                        {/* <Link className="wish" href="#">
                           <svg
                             width={20}
                             height={18}
@@ -81,7 +81,7 @@ const TopRated2: React.FC<TopRated2Props> = ({ tours }) => {
                               fill="none"
                             />
                           </svg>
-                        </Link>
+                        </Link> */}
                         <img
                           // src={
                           //   t.uploadedPrimaryImages[0].url ||
@@ -190,8 +190,11 @@ const TopRated2: React.FC<TopRated2Props> = ({ tours }) => {
                           <div className="endtime">
                             <div className="card-price">
                               <h6 className="heading-6 neutral-1000">
-                                {t.pricePerPerson}{" "}
-                                {CurrencyDisplayNames[t.currency]}
+                                {t.pricePerPerson > 0
+                                  ? `${t.pricePerPerson} ${
+                                      CurrencyDisplayNames[t.currency]
+                                    }`
+                                  : "-"}
                               </h6>
                               <p className="text-md-medium neutral-500">
                                 / kişi

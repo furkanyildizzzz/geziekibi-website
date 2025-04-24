@@ -72,6 +72,8 @@ const useTourFilter = (toursData: Tour[]) => {
   //   ];
 
   // Filter the tours by selected names, activities, languages, attractions, price range, duration, and rating
+  console.log({ toursData });
+  console.log({ priceRange: filter.priceRange });
   const filteredTours = toursData.filter((tour) => {
     return (
       (filter.names.length === 0 || filter.names.includes(tour.name)) &&
@@ -94,6 +96,7 @@ const useTourFilter = (toursData: Tour[]) => {
       //     filter.groupSize.includes(tour.groupSize))
     );
   });
+  console.log({ filteredTours });
 
   // Sort the filtered tours based on the selected criteria
   const sortedTours = [...filteredTours].sort((a, b) => {
