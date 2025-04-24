@@ -27,9 +27,9 @@ export enum CurrencyEnum {
   USD = "usd",
 }
 export const CurrencyDisplayNames: { [key in CurrencyEnum]: string } = {
-  [CurrencyEnum.TRY]: "TL ₺",
-  [CurrencyEnum.EUR]: "Euro €",
-  [CurrencyEnum.USD]: "Dolar $",
+  [CurrencyEnum.TRY]: "₺",
+  [CurrencyEnum.EUR]: "€",
+  [CurrencyEnum.USD]: "$",
 };
 
 export enum TourServiceTypeEnum {

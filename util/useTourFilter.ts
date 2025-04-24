@@ -1,9 +1,11 @@
 "use client";
+import { CurrencyEnum } from "@/lib/enums";
 import { ChangeEvent, useState } from "react";
 
 export interface Tour {
   id: number;
   price: number;
+  currency: CurrencyEnum;
   //   duration: number;
   //   groupSize: number;
   tourType: string;
@@ -133,6 +135,7 @@ const useTourFilter = (toursData: Tour[]) => {
   };
 
   const handlePriceRangeChange = (values: [number, number]) => {
+    console.log({ values });
     setFilter((prevFilter) => ({
       ...prevFilter,
       priceRange: values,
@@ -180,8 +183,8 @@ const useTourFilter = (toursData: Tour[]) => {
   };
 
   const handleClearFilters = () => {
-    console.log("handleClearFilters")
-    console.log({toursData})
+    console.log("handleClearFilters");
+    console.log({ toursData });
     setFilter({
       names: [],
       activities: [],

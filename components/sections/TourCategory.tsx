@@ -24,6 +24,7 @@ import ByName from "@/components/Filter/ByName";
 import { getDestinations } from "@/app/api/homepage/getDestinations";
 import { SearchParams, searchTours } from "@/app/api/tour/searchTours";
 import { getToursByCategoryId } from "@/app/api/tour/getToursByCategory";
+import { CurrencyDisplayNames } from "@/lib/enums";
 
 export default function TourCategory({
   category,
@@ -246,7 +247,8 @@ export default function TourCategory({
                                 <div className="endtime">
                                   <div className="card-price">
                                     <h6 className="heading-6 neutral-1000">
-                                      ₺{tour.price}
+                                      {CurrencyDisplayNames[tour.currency]}{" "}
+                                      {tour.price}
                                     </h6>
                                   </div>
                                   <div className="card-button">
@@ -338,7 +340,8 @@ export default function TourCategory({
                                   {tour.title}
                                 </Link>
                                 <span className="price text-sm-bold neutral-1000">
-                                  {tour.pricePerPerson}₺
+                                  {tour.pricePerPerson}{" "}
+                                  {CurrencyDisplayNames[tour.currency]}
                                 </span>
                               </div>
                             </div>

@@ -231,6 +231,7 @@ export type FeaturedTourListSuccessResponse = {
   uploadedPrimaryImages: CloudinaryImage[];
   daysAndNights: string;
   pricePerPerson: number;
+  currency: CurrencyEnum;
   category: TourCategorySuccessResponse;
 };
 

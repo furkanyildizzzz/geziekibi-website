@@ -4,6 +4,7 @@ import { swiperGroupAnimate } from "@/util/swiperOption";
 import Link from "next/link";
 import { FeaturedTourListSuccessResponse } from "@/types/ApiResponseType";
 import imageFunctions from "@/util/imageFunctions";
+import { CurrencyDisplayNames } from "@/lib/enums";
 
 interface TopRated2Props {
   tours: FeaturedTourListSuccessResponse[];
@@ -96,7 +97,7 @@ const TopRated2: React.FC<TopRated2Props> = ({ tours }) => {
                         />
                       </div>
                       <div className="card-info">
-                        <div className="card-rating">
+                        {/* <div className="card-rating">
                           <div className="card-left"> </div>
                           <div className="card-right">
                             {" "}
@@ -107,7 +108,7 @@ const TopRated2: React.FC<TopRated2Props> = ({ tours }) => {
                               </span>
                             </span>
                           </div>
-                        </div>
+                        </div> */}
                         <div
                           className="card-title"
                           style={{
@@ -189,7 +190,8 @@ const TopRated2: React.FC<TopRated2Props> = ({ tours }) => {
                           <div className="endtime">
                             <div className="card-price">
                               <h6 className="heading-6 neutral-1000">
-                                {t.pricePerPerson} ₺
+                                {t.pricePerPerson}{" "}
+                                {CurrencyDisplayNames[t.currency]}
                               </h6>
                               <p className="text-md-medium neutral-500">
                                 / kişi

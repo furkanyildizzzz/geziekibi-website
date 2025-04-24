@@ -6,6 +6,7 @@ import { FeaturedTourListSuccessResponse } from "@/types/ApiResponseType";
 import imageFunctions from "@/util/imageFunctions";
 import { useAppDispatch } from "@/redux/Hooks";
 import { setNavigationData } from "@/redux/Reducers/NavigationDataSlice";
+import { CurrencyDisplayNames } from "@/lib/enums";
 
 interface OurFeatured1Props {
   tours: FeaturedTourListSuccessResponse[];
@@ -102,7 +103,8 @@ const OurFeatured1: React.FC<OurFeatured1Props> = ({ tours }) => {
                         <div className="endtime">
                           <div className="card-price">
                             <h6 className="heading-6 neutral-1000">
-                              {t.pricePerPerson}₺
+                              {t.pricePerPerson}{" "}
+                              {CurrencyDisplayNames[t.currency]}
                             </h6>
                             <p className="text-md-medium neutral-500">/ kişi</p>
                           </div>
