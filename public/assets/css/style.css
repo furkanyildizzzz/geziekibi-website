@@ -15704,6 +15704,44 @@ h2 span {
     height: auto;
     min-height: 669px;
   }
+  .banner-main .banner-image {
+    height: auto !important;
+    min-height: 300px !important;
+    padding-bottom: 100px !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  .slick-prev,
+  .slick-next {
+    height: 32px;
+    width: 32px;
+    bottom: 100px;
+    left: 10px;
+    background-color: var(--bs-neutral-200);
+  }
+
+  .slick-next {
+    left: 50px;
+  }
+
+  .slick-prev svg,
+  .slick-next svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--bs-neutral-1000);
+  }
+
+  .slick-prev:hover,
+  .slick-next:hover {
+    background-color: var(--bs-neutral-900);
+  }
+
+  .slick-prev:hover svg,
+  .slick-next:hover svg {
+    stroke: var(--bs-neutral-0);
+  }
+
   .box-search-advance .box-top-search {
     flex-wrap: wrap;
   }

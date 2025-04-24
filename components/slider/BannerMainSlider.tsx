@@ -87,7 +87,8 @@ export default function BannerMainSlider({
   };
 
   const settingsThumbs = {
-    slidesToShow: sliders && sliders.length > 0 ? sliders.length : staticSlides.length,
+    slidesToShow:
+      sliders && sliders.length > 0 ? sliders.length : staticSlides.length,
     slidesToScroll: 1,
     dots: false,
     focusOnSelect: true,
@@ -98,16 +99,32 @@ export default function BannerMainSlider({
   return (
     <>
       <Slider {...settingsMain} ref={slider1} className="banner-main">
-        {sliders && sliders.length > 0 ? (
-          sliders
-            .map((slider, i) => {
-              return (
-                <div key={i} className="banner-slide">
+        {sliders && sliders.length > 0
+          ? sliders
+              .map((slider, i) => {
+                return (
+                  <div key={i} className="banner-slide">
+                    <div
+                      key={slider.id}
+                      className="banner-image"
+                      style={{
+                        background: `url('${slider.image.url}') no-repeat top center`,
+                        backgroundPosition: "top center",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        minHeight: "769px",
+                        paddingBottom: "250px",
+                      }}
+                    ></div>
+                  </div>
+                );
+              })
+              .concat(
+                <div key={sliders.length} className="banner-slide">
                   <div
-                    key={slider.id}
                     className="banner-image"
                     style={{
-                      background: `url('${slider.image.url}') no-repeat top center`,
+                      background: `url('${sliders[0].image.url}') no-repeat top center`,
                       backgroundPosition: "top center",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
@@ -116,41 +133,23 @@ export default function BannerMainSlider({
                     }}
                   ></div>
                 </div>
-              );
-            })
-            .concat(
-              <div key={sliders.length} className="banner-slide">
+              )
+          : staticSlides.map((src, index) => (
+              <div key={index} className="banner-slide">
                 <div
+                  key={index + 4}
                   className="banner-image"
                   style={{
-                    background: `url('${sliders[0].image.url}') no-repeat top center`,
+                    background: `url('${src}') no-repeat top center`,
                     backgroundPosition: "top center",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     minHeight: "769px",
                     paddingBottom: "250px",
                   }}
-                ></div>
+                />
               </div>
-            )
-        ) : (
-          staticSlides.map((src, index) => (
-            <div key={index} className="banner-slide">
-              <div
-                key={index + 4}
-                className="banner-image"
-                style={{
-                  background: `url('${src}') no-repeat top center`,
-                  backgroundPosition: "top center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  minHeight: "769px",
-                  paddingBottom: "250px",
-                }}
-              />
-            </div>
-          ))
-        )}
+            ))}
       </Slider>
       <div className="slider-thumnail">
         <Slider
@@ -158,20 +157,17 @@ export default function BannerMainSlider({
           ref={slider2}
           className="slider-nav-thumbnails"
         >
-          {sliders?.length ? (
-            sliders.map((slider, i) => (
-              <div key={i} className="banner-slide">
-                <img src={slider.image.url} alt="Geziekibi" />
-              </div>
-            ))
-          ) : (
-            staticSlides.map((src, index) => (
-              <div className="banner-slide" key={index}>
-                <img src={src} alt="Geziekibi" />
-              </div>
-            ))
-          )}
-
+          {sliders?.length
+            ? sliders.map((slider, i) => (
+                <div key={i} className="banner-slide">
+                  <img src={slider.image.url} alt="Geziekibi" />
+                </div>
+              ))
+            : staticSlides.map((src, index) => (
+                <div className="banner-slide" key={index}>
+                  <img src={src} alt="Geziekibi" />
+                </div>
+              ))}
         </Slider>
       </div>
     </>
