@@ -1,4 +1,5 @@
 import { getTopTours } from "@/app/api/homepage/getTopTours";
+import { CurrencyDisplayNames } from "@/lib/enums";
 import { FeaturedTourListSuccessResponse } from "@/types/ApiResponseType";
 import imageFunctions from "@/util/imageFunctions";
 import Link from "next/link";
@@ -51,7 +52,8 @@ const PopularTours = () => {
                       {tour.title}
                     </Link>
                     <span className="price text-sm-bold neutral-1000">
-                      {tour.pricePerPerson}₺
+                      {tour.pricePerPerson}
+                      {CurrencyDisplayNames[tour.currency]}{" "}
                     </span>
                   </div>
                 </div>

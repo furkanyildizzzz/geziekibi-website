@@ -4,6 +4,7 @@ export default function ByPrice({
   minPrice,
   maxPrice,
 }: any) {
+  console.log({ minPrice, maxPrice });
   return (
     <>
       <div className="box-collapse scrollFilter">
@@ -24,12 +25,13 @@ export default function ByPrice({
           min={minPrice}
           max={maxPrice}
           value={filter.priceRange[1]}
-          onChange={(e) =>
+          onChange={(e) => {
+            console.log(filter, e.target.value);
             handlePriceRangeChange([
               filter.priceRange[0],
               parseInt(e.target.value),
-            ])
-          }
+            ]);
+          }}
         />
         <div>
           <span>₺{filter.priceRange[0]}</span> -{" "}
