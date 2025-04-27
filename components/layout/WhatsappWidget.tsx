@@ -57,7 +57,7 @@ const WhatsappWidget = ({ isMobileMenu }: any) => {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const message = encodeURIComponent("Send a quote");
+    const message = encodeURIComponent("");
     const mobileUrl = `https://api.whatsapp.com/send?phone=${phone_no}&text=${message}`;
     const desktopUrl = `https://web.whatsapp.com/send?phone=${phone_no}&text=${message}`;
 
