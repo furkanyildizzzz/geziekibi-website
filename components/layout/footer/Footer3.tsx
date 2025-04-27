@@ -12,14 +12,14 @@ export default function Footer3() {
                     <img
                       className="dark-mode"
                       alt="Travila"
-                      src="/assets/imgs/logo-80.png"
+                      src="/assets/imgs/geziekibi-logo-vektorel.svg"
                       //   src="/assets/imgs/template/logo-footer.svg"
                       style={{ width: "120px", height: "auto" }}
                     />
                     <img
                       className="light-mode"
                       alt="Travila"
-                      src="/assets/imgs/logo-80.png"
+                      src="/assets/imgs/geziekibi-logo-vektorel.svg"
                       //   src="/assets/imgs/template/logo-footer-w.svg"
                       style={{ width: "120px", height: "auto" }}
                     />

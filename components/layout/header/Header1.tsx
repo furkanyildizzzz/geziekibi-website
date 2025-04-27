@@ -24,13 +24,13 @@ export default function Header1({
                   <img
                     className="light-mode"
                     alt="Geziekibi"
-                    src="/assets/imgs/logo-80.png"
+                    src="/assets/imgs/geziekibi-logo-vektorel.svg"
                     style={{ width: "120px", height: "auto" }}
                   />
                   <img
                     className="dark-mode"
                     alt="Geziekibi"
-                    src="/assets/imgs/logo-80.png"
+                    src="/assets/imgs/geziekibi-logo-vektorel.svg"
                     style={{ width: "120px", height: "auto" }}
                   />
                 </Link>
@@ -77,13 +77,15 @@ export default function Header1({
                   <img
                     className="light-mode"
                     alt="Geziekibi"
-                    src="/assets/imgs/ari-80.png"
+                    // src="/assets/imgs/ari-80.png"
+                    src="/assets/imgs/ari-logo-vektorel.svg"
                     style={{ width: "120px", height: "auto" }}
                   />
                   <img
                     className="dark-mode"
                     alt="Geziekibi"
-                    src="/assets/imgs/ari-80.png"
+                    // src="/assets/imgs/ari-80.png"
+                    src="/assets/imgs/ari-logo-vektorel.svg"
                     style={{ width: "120px", height: "auto" }}
                   />
                 </Link>
