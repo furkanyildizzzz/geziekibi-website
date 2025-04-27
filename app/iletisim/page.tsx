@@ -236,7 +236,6 @@ export default function Contact() {
                               {...register("firstName")}
                               className="form-control"
                               type="text"
-                              placeholder="First Name"
                             />
                             {errors.firstName && (
                               <p className="error-text">
@@ -255,7 +254,6 @@ export default function Contact() {
                               {...register("lastName")}
                               className="form-control"
                               type="text"
-                              placeholder="Last Name"
                             />
                             {errors.lastName && (
                               <p className="error-text">
@@ -274,7 +272,6 @@ export default function Contact() {
                               {...register("email")}
                               className="form-control"
                               type="email"
-                              placeholder="email@domain.com"
                             />
                             {errors.email && (
                               <p className="error-text">
@@ -293,7 +290,6 @@ export default function Contact() {
                               {...register("phone")}
                               className="form-control"
                               type="text"
-                              placeholder="Phone number"
                             />
                             {errors.phone && (
                               <p className="error-text">
@@ -312,7 +308,6 @@ export default function Contact() {
                               {...register("message")}
                               className="form-control"
                               rows={6}
-                              placeholder="Leave us a message..."
                             ></textarea>
                             {errors.message && (
                               <p className="error-text">
