@@ -129,6 +129,15 @@ export default function Header1({
                   </Link>
                 </div>
               </div>
+
+              <div
+                className="burger-icon burger-icon-white"
+                onClick={handleMobileMenu}
+              >
+                <span className="burger-icon-top" />
+                <span className="burger-icon-mid" />
+                <span className="burger-icon-bottom" />
+              </div>
             </div>
           </div>
         </div>

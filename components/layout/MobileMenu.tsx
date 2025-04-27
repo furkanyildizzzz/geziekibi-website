@@ -36,7 +36,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
               onClick={handleMobileMenu}
             />
           </div>
-          <div className="mobile-header-top">
+          {/* <div className="mobile-header-top">
             <div className="box-author-profile">
               <div className="card-author">
                 <div className="card-image">
@@ -55,7 +55,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
                 Logout
               </Link>
             </div>
-          </div>
+          </div> */}
           <div className="mobile-header-content-area">
             <div className="perfect-scroll">
               <div className="mobile-menu-wrap mobile-header-border">
@@ -73,7 +73,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
                       <Link href="/makaleler">Makaleler</Link>
                     </li>
                     <li>
-                      <Link href="/makaleler">Biletler</Link>
+                      <Link href="/kataloglar">Kataloglar</Link>
                     </li>
                     <li>
                       <Link href="/hakkimizda">Hakkımızda</Link>
