@@ -136,10 +136,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({ blog, blogs }) => {
                           <div className="post-date neutral-1000">
                             {formatDate(blog.publishDate.toString())}
                           </div>
-                          <div className="post-time neutral-1000">6 mins</div>
-                          <div className="post-comment neutral-1000">
-                            38 comments
-                          </div>
+                          {/* <div className="post-time neutral-1000">6 mins</div> */}
                         </div>
                       </div>
                     </div>
