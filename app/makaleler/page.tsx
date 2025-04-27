@@ -218,7 +218,9 @@ export default function BlogGrid2() {
                                 {" "}
                                 <img
                                   src={imageFunctions.resizeImage(
-                                    "", //category.uploadedPrimaryImages[0].url,
+                                    category.uploadedPrimaryImages.length > 0
+                                      ? category.uploadedPrimaryImages[0].url
+                                      : "",
                                     80,
                                     80
                                   )}
@@ -227,20 +229,22 @@ export default function BlogGrid2() {
                               </div>
                               <div className="card-info">
                                 {" "}
-                                <Link className="card-title" href="/blog-grid">
+                                {/* <Link className="card-title" href="/blog-grid">
                                   {category.name}
-                                </Link>
+                                </Link> */}
+                                <span>{category.name}</span>
                                 <div className="card-meta">
                                   <div className="meta-links">
                                     {" "}
-                                    <Link
+                                    {/* <Link
                                       className="text-tour text-post"
                                       href="#"
                                     >
                                       {category.blogCount} makale
-                                    </Link>
+                                    </Link> */}
+                                    <span>{category.blogCount} makale</span>
                                   </div>
-                                  <div className="card-button">
+                                  {/* <div className="card-button">
                                     {" "}
                                     <Link href="/blog-grid">
                                       <svg
@@ -256,7 +260,7 @@ export default function BlogGrid2() {
                                         />
                                       </svg>
                                     </Link>
-                                  </div>
+                                  </div> */}
                                 </div>
                               </div>
                             </div>
