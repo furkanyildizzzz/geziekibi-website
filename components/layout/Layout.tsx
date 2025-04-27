@@ -127,7 +127,7 @@ export default function Layout({
       />
 
       {/* WhatsApp Widget */}
-      <WhatsappWidget />
+      <WhatsappWidget isMobileMenu={isMobileMenu} />
 
       <BackToTop target="top" />
     </>
