@@ -97,6 +97,7 @@ export default function Testimonials2({
                                     .replace("day ago", "gün önce")
                                     .replace("days ago", "gün önce")
                                     .replace("in the last week", "geçen hafta")
+                                    .replace("a week ago", "1 hafta önce")
                                     .replace("weeks ago", "hafta önce")
                                     .replace("month ago", "ay önce")
                                     .replace("months ago", "ay önce")
