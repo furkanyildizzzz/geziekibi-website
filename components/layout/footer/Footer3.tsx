@@ -12,14 +12,14 @@ export default function Footer3() {
                     <img
                       className="dark-mode"
                       alt="Travila"
-                      src="/assets/imgs/logo-80.png"
+                      src="/assets/imgs/geziekibi-logo-vektorel.svg"
                       //   src="/assets/imgs/template/logo-footer.svg"
                       style={{ width: "120px", height: "auto" }}
                     />
                     <img
                       className="light-mode"
                       alt="Travila"
-                      src="/assets/imgs/logo-80.png"
+                      src="/assets/imgs/geziekibi-logo-vektorel.svg"
                       //   src="/assets/imgs/template/logo-footer-w.svg"
                       style={{ width: "120px", height: "auto" }}
                     />
@@ -54,23 +54,23 @@ export default function Footer3() {
                       <li>
                         <Link href="/iletisim">Bizimle İetişime Geçin</Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link href="/odullerimiz">Ödüllerimiz</Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                   <div className="col-md-3 col-sm-6">
                     <h6 className="neutral-1000">Hizmetler</h6>
                     <ul className="menu-footer">
-                      <li>
+                      {/* <li>
                         <Link href="/turlar/rehber">Tur Rehberlerimiz</Link>
-                      </li>
+                      </li> */}
                       <li>
                         <Link href="/turlar">Turlarımız</Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link href="/biletler">Uçak Bileti</Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                   <div className="col-md-3 col-sm-6">

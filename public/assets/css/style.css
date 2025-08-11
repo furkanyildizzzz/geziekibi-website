@@ -7685,7 +7685,7 @@ label {
   line-height: 26px;
 }
 .footer .menu-footer li a:hover {
-  color: var(--bs-neutral-0);
+  color: var(--bs-warning);
   transition-duration: 0.2s;
 }
 .footer .menu-bottom-footer {

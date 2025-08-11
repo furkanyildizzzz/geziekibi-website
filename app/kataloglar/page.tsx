@@ -91,40 +91,41 @@ export default function Catalogs() {
                       flexWrap: "wrap",
                     }}
                   >
-                    {catalogs.map((catalog, index) => {
-                      return (
-                        <div
-                          className="card-blog"
-                          key={index}
-                          style={{
-                            width: "30%",
-                            maxWidth: "300px",
-                            padding: "10px",
-                          }}
-                          onClick={() => onClickPreview(catalog)}
-                        >
-                          <div
-                            className="card-image"
-                            style={{ maxWidth: "100%" }}
-                          >
-                            <img
-                              src={`${imageFunctions.GetCloudinaryPdfFileFirstPageAsImange(
-                                catalog.url
-                              )}`}
-                              alt={catalog.originalName}
-                              style={{ width: "100%", height: "auto" }}
-                            />
-                          </div>
-                          <div className="card-info">
-                            <div className="card-info-blog">
-                              <h5 className="card-title heading-5">
-                                {catalog.originalName}
-                              </h5>
-                            </div>
+                    {catalogs.map((catalog, index) => (
+                      <div
+                        className="card-blog"
+                        key={index}
+                        style={{
+                          flex: "1 1 calc(25% - 20px)", // 4 items per row on large
+                          maxWidth: "300px",
+                          minWidth: "220px", // prevents getting too small
+                          padding: "10px",
+                          boxSizing: "border-box",
+                        }}
+                        onClick={() => onClickPreview(catalog)}
+                      >
+                        <div className="card-image" style={{ width: "100%" }}>
+                          <img
+                            src={`${imageFunctions.GetCloudinaryPdfFileFirstPageAsImange(
+                              catalog.url
+                            )}`}
+                            alt={catalog.originalName}
+                            style={{
+                              width: "100%",
+                              height: "auto",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </div>
+                        <div className="card-info">
+                          <div className="card-info-blog">
+                            <h5 className="card-title heading-5">
+                              {catalog.originalName}
+                            </h5>
                           </div>
                         </div>
-                      );
-                    })}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

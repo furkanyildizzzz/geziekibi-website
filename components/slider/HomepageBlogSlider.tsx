@@ -55,8 +55,8 @@ const HomepageBlogSlider: React.FC<HomepageBlogSliderProps> = ({ blogs }) => {
                   <span className="post-date neutral-1000">
                     {formatDate(b.publishDate.toString())}
                   </span>
-                  <span className="post-time neutral-1000">6 mins</span>
-                  <span className="post-comment neutral-1000">38 comments</span>
+                  {/* <span className="post-time neutral-1000">6 mins</span>
+                  <span className="post-comment neutral-1000">38 comments</span> */}
                 </div>
                 <div
                   className="card-title"
