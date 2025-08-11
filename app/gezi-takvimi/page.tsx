@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getFAQs } from "../api/homepage/getFAQs";
 import { getTravelCalendar } from "../api/homepage/getTravelCalendar";
 import formatDate from "@/util/formatDate";
+import { CurrencyDisplayNames } from "@/lib/enums";
 export default function TravelCalendar() {
   const [travelCalendar, setTravelCalendar] = useState<TravelCalendarResponse>();
   const [openKey, setOpenKey] = useState<string | null>(null);
@@ -107,156 +108,160 @@ export default function TravelCalendar() {
                         </div>
                       ))} */}
 
-                      {travelCalendar?.years.map((year) =>
-                        year.months.map((month) => {
-                          const key = `${year.year}-${month.month}`;
-                          const isOpen = openKey === key;
-                          return (
-                            <div
-                              key={key}
+                    {travelCalendar?.years.map((year) =>
+                      year.months.map((month) => {
+                        const key = `${year.year}-${month.month}`;
+                        const isOpen = openKey === key;
+                        return (
+                          <div
+                            key={key}
+                            style={{
+                              marginBottom: 20,
+                              border: "1px solid #ccc",
+                              borderRadius: 6,
+                              overflow: "hidden",
+                            }}
+                          >
+                            <button
+                              onClick={() => toggle(key)}
                               style={{
-                                marginBottom: 20,
-                                border: "1px solid #ccc",
-                                borderRadius: 6,
-                                overflow: "hidden",
+                                width: "100%",
+                                background: "#eee",
+                                border: "none",
+                                padding: "12px 20px",
+                                textAlign: "left",
+                                fontWeight: "bold",
+                                cursor: "pointer",
+                                fontSize: 18,
                               }}
+                              aria-expanded={isOpen}
+                              aria-controls={`panel-${key}`}
+                              id={`header-${key}`}
                             >
-                              <button
-                                onClick={() => toggle(key)}
-                                style={{
-                                  width: "100%",
-                                  background: "#eee",
-                                  border: "none",
-                                  padding: "12px 20px",
-                                  textAlign: "left",
-                                  fontWeight: "bold",
-                                  cursor: "pointer",
-                                  fontSize: 18,
-                                }}
-                                aria-expanded={isOpen}
-                                aria-controls={`panel-${key}`}
-                                id={`header-${key}`}
-                              >
-                                {new Date(year.year, month.month - 1).toLocaleString("tr-TR", {
-                                  month: "long",
-                                  year: "numeric",
-                                })}{" "}
-                                Turları
-                                <span style={{ float: "right", fontWeight: "normal" }}>
-                                  {isOpen ? "▲" : "▼"}
-                                </span>
-                              </button>
+                              {new Date(year.year, month.month - 1).toLocaleString("tr-TR", {
+                                month: "long",
+                                year: "numeric",
+                              })}{" "}
+                              Turları
+                              <span style={{ float: "right", fontWeight: "normal" }}>
+                                {isOpen ? "▲" : "▼"}
+                              </span>
+                            </button>
 
-                              {isOpen && (
+                            {isOpen && (
+                              <div
+                                id={`panel-${key}`}
+                                role="region"
+                                aria-labelledby={`header-${key}`}
+                                style={{
+                                  background: "#fff",
+                                  padding: 20,
+                                }}
+                              >
                                 <div
-                                  id={`panel-${key}`}
-                                  role="region"
-                                  aria-labelledby={`header-${key}`}
                                   style={{
-                                    background: "#fff",
-                                    padding: 20,
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                    fontWeight: "bold",
+                                    borderBottom: "1px solid #ccc",
+                                    paddingBottom: 6,
+                                    marginBottom: 10,
                                   }}
                                 >
-                                  <div
+                                  <span style={{ width: 300, float: "left" }}>Gidiş / Dönüş</span>
+                                  <span style={{ width: 150, float: "left" }}>Tur Süresi</span>
+                                  <span style={{ flexGrow: 1 }}>Tur Adı</span>
+                                  <span
                                     style={{
-                                      display: "flex",
-                                      justifyContent: "space-between",
-                                      fontWeight: "bold",
-                                      borderBottom: "1px solid #ccc",
-                                      paddingBottom: 6,
-                                      marginBottom: 10,
+                                      width: 100,
+                                      float: "right",
+                                      textAlign: "right",
+                                      paddingRight: 10,
                                     }}
                                   >
-                                    <span style={{ width: 300, float: "left" }}>Gidiş / Dönüş</span>
-                                    <span style={{ width: 150, float: "left" }}>Tur Süresi</span>
-                                    <span style={{ flexGrow: 1 }}>Tur Adı</span>
-                                    <span
-                                      style={{
-                                        width: 100,
-                                        float: "right",
-                                        textAlign: "right",
-                                        paddingRight: 10,
-                                      }}
-                                    >
-                                      Fiyat
-                                    </span>
-                                  </div>
+                                    Fiyat
+                                  </span>
+                                </div>
 
-                                  <ul style={{ paddingLeft: 0, margin: 0, listStyle: "none" }}>
-                                    {month.tours.map((tour: TourDTO, i: number) => {
-                                      const departure = formatDate(tour.departureDate);
-                                      const returnD = formatDate(tour.returnDate);
-                                      const [days, nights] = (() => {
-                                        const diffTime =
-                                          new Date(tour.returnDate!).getTime() -
-                                          new Date(tour.departureDate!).getTime();
-                                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                                        return [diffDays, diffDays - 1];
-                                      })();
+                                <ul style={{ paddingLeft: 0, margin: 0, listStyle: "none" }}>
+                                  {month.tours.map((tour: TourDTO, i: number) => {
+                                    const departure = formatDate(tour.departureDate);
+                                    const returnD = formatDate(tour.returnDate);
+                                    const [days, nights] = (() => {
+                                      const diffTime =
+                                        new Date(tour.returnDate!).getTime() -
+                                        new Date(tour.departureDate!).getTime();
+                                      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                                      return [diffDays, diffDays - 1];
+                                    })();
 
-                                      const priceString =
-                                        tour.price.amount.toLocaleString("tr-TR", {
-                                          minimumFractionDigits: 2,
-                                          maximumFractionDigits: 2,
-                                        }) +
-                                        " " +
-                                        tour.price.currency;
+                                    // const priceString =
+                                    //   tour.price.amount.toLocaleString("tr-TR", {
+                                    //     minimumFractionDigits: 2,
+                                    //     maximumFractionDigits: 2,
+                                    //   }) +
+                                    //   " " +
+                                    //   tour.price.currency;
+                                    const priceString = tour.price && tour.price.amount !== 0
+                                      ? `${CurrencyDisplayNames[tour.price.currency]
+                                      } ${tour.price.amount}`
+                                      : "-"
 
-                                      return (
-                                        <li
-                                          key={i}
+                                    return (
+                                      <li
+                                        key={i}
+                                        style={{
+                                          display: "flex",
+                                          justifyContent: "space-between",
+                                          padding: "8px 0",
+                                          borderBottom: i !== month.tours.length - 1 ? "1px solid #eee" : "",
+                                        }}
+                                      >
+                                        <Link
+                                          href={`/turlar/${tour.seoLink}`}
                                           style={{
                                             display: "flex",
-                                            justifyContent: "space-between",
-                                            padding: "8px 0",
-                                            borderBottom: i !== month.tours.length - 1 ? "1px solid #eee" : "",
+                                            width: "100%",
+                                            textDecoration: "none",
+                                            color: "inherit",
                                           }}
                                         >
-                                          <Link
-                                            href={`/turlar/${tour.seoLink}`}
+                                          <span style={{ width: 300, float: "left" }}>
+                                            {departure} - {returnD}
+                                          </span>
+                                          <span style={{ width: 150, float: "left" }}>
+                                            {nights} Gece - {days} Gün
+                                          </span>
+                                          <span
                                             style={{
-                                              display: "flex",
-                                              width: "100%",
-                                              textDecoration: "none",
-                                              color: "inherit",
+                                              maxWidth: 450,
+                                              display: "inline flow-root list-item",
+                                              flexGrow: 1,
                                             }}
                                           >
-                                            <span style={{ width: 300, float: "left" }}>
-                                              {departure} - {returnD}
-                                            </span>
-                                            <span style={{ width: 150, float: "left" }}>
-                                              {nights} Gece - {days} Gün
-                                            </span>
-                                            <span
-                                              style={{
-                                                maxWidth: 450,
-                                                display: "inline flow-root list-item",
-                                                flexGrow: 1,
-                                              }}
-                                            >
-                                              {tour.tourName.toUpperCase()}
-                                            </span>
-                                            <span
-                                              style={{
-                                                width: 100,
-                                                float: "right",
-                                                textAlign: "right",
-                                                paddingRight: 10,
-                                              }}
-                                            >
-                                              {priceString}
-                                            </span>
-                                          </Link>
-                                        </li>
-                                      );
-                                    })}
-                                  </ul>
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })
-                      )}
+                                            {tour.tourName.toUpperCase()}
+                                          </span>
+                                          <span
+                                            style={{
+                                              width: 100,
+                                              float: "right",
+                                              textAlign: "right",
+                                              paddingRight: 10,
+                                            }}
+                                          >
+                                            {priceString}
+                                          </span>
+                                        </Link>
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })
+                    )}
 
                   </div>
                 </div>

@@ -303,7 +303,7 @@ export type GoogleReviewResponse = {
 
 export type PriceDTO = {
   amount: number;
-  currency: string;
+  currency: CurrencyEnum;
 }
 
 export type TourDTO = {
