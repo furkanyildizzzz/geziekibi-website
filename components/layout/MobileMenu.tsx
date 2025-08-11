@@ -70,6 +70,9 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
                       <Link href="/turlar">Turlar</Link>
                     </li>
                     <li>
+                      <Link href="/gezi-takvimi">Gezi Takvimi</Link>
+                    </li>
+                    <li>
                       <Link href="/makaleler">Makaleler</Link>
                     </li>
                     <li>

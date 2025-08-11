@@ -46,7 +46,9 @@ export default function Header1({
                     <li className="mega-li-small">
                       <Link href="/turlar">Turlar</Link>
                     </li>
-
+                    <li className="mega-li-small">
+                      <Link href="/gezi-takvimi">Gezi Takvimi</Link>
+                    </li>
                     <li className="">
                       <Link href="/makaleler">Makaleler</Link>
                     </li>

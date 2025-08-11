@@ -299,3 +299,36 @@ export type GoogleReviewResponse = {
   time: number;
   translated: boolean;
 };
+
+
+export type PriceDTO = {
+  amount: number;
+  currency: string;
+}
+
+export type TourDTO = {
+  departureDate: string;  // ISO format
+  returnDate: string;     // ISO format
+  durationDays: number;
+  tourName: string;
+  seoLink: string;
+  price: PriceDTO;
+}
+
+export type MonthDTO = {
+  month: number;  // 1-12
+  tours: TourDTO[];
+}
+
+export type YearDTO = {
+  year: number;  // 1-12
+  months: MonthDTO[];
+}
+
+export type TravelCalendarResponse = {
+  years: YearDTO[];
+}
+
+
+
+
